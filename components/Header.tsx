@@ -311,8 +311,8 @@ const Header = () => {
       />
 
       {/* Fixed Mobile Branding (Star) */}
-      <div className="lg:hidden fixed top-[16px] left-6 z-[60] pointer-events-none transition-none">
-        <span className="text-[80px] font-mono leading-none text-[#FF8C00] block drop-shadow-[0_0_15px_rgba(255,140,0,0.3)]">*</span>
+      <div className="lg:hidden fixed top-4 left-4 z-[60] pointer-events-none transition-none w-12 h-12 flex items-center justify-center">
+        <span className="text-[48px] font-mono leading-none text-[#FF8C00] block drop-shadow-[0_0_15px_rgba(255,140,0,0.3)]">*</span>
       </div>
 
       {/* Fixed Mobile Hamburger Button */}
