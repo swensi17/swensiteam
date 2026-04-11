@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Top Right: Columns */}
-        <div className="lg:col-span-7 grid grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="lg:col-span-7 grid grid-cols-2 gap-8">
           <div className="flex flex-col gap-5">
             <h4 className="font-semibold text-white/90 mb-2">Услуги</h4>
             <a href="#services" className="text-neutral-400 hover:text-[#FF3B30] transition-colors text-sm">Telegram боты</a>
@@ -67,7 +67,7 @@ const Footer: React.FC = () => {
             <a href="https://t.me/amirjanjik" target="_blank" rel="noreferrer" className="text-neutral-400 hover:text-white transition-colors text-sm">Отзывы (10K+)</a>
             <a href="https://t.me/swensiorder" target="_blank" rel="noreferrer" className="text-neutral-400 hover:text-white transition-colors text-sm">Архив заказов</a>
           </div>
-          <div className="flex flex-col gap-5 col-span-2 lg:col-span-1 mt-4 lg:mt-0">
+          <div className="hidden lg:flex flex-col gap-5">
             <h4 className="font-semibold text-white/90 mb-2">Компания</h4>
             <a href="#about" className="text-neutral-400 hover:text-white transition-colors text-sm">Обо мне</a>
             <a href="#process" className="text-neutral-400 hover:text-white transition-colors text-sm">Процесс</a>
