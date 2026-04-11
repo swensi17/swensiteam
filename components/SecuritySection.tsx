@@ -8,7 +8,7 @@ const SecuritySection: React.FC = () => {
       id: '01/',
       title: 'Безопасный доступ',
       desc: 'Многофакторная аутентификация (MFA) и строгий контроль доступа (IAM) обеспечивают защиту вашей учетной записи от несанкционированного проникновения.',
-      icon: '/swensidev/svg/surrealdb.svg',
+      icon: '/swensiteam/svg/surrealdb.svg',
       size: 'lg:col-start-1 lg:row-start-1',
       bg: 'bg-[#050505]',
       tag: 'Identity'
@@ -17,7 +17,7 @@ const SecuritySection: React.FC = () => {
       id: '02/',
       title: 'Шифрование данных',
       desc: 'Мы используем алгоритм AES-256 для защиты всех данных "в покое" и протоколы TLS для обеспечения безопасности при передаче информации. Это гарантирует, что даже в случае перехвата трафика, ваши данные останутся недоступными для третьих лиц. Мы применяем сквозное шифрование для всех критических узлов инфраструктуры.',
-      icon: '/swensidev/svg/pocket-base.svg',
+      icon: '/swensiteam/svg/pocket-base.svg',
       size: 'lg:col-start-2 lg:row-span-2 lg:row-start-1',
       bg: 'bg-[#050505]',
       tag: 'Cryptography'
@@ -26,7 +26,7 @@ const SecuritySection: React.FC = () => {
       id: '03/',
       title: 'Uptime 99.9%',
       desc: 'Наша инфраструктура спроектирована с учетом отказоустойчивости, что гарантирует стабильную работу ваших сервисов даже при пиковых нагрузках.',
-      icon: '/swensidev/svg/vitest.svg',
+      icon: '/swensiteam/svg/vitest.svg',
       size: 'lg:col-start-3 lg:row-start-1',
       bg: 'bg-[#050505]',
       tag: 'Reliability',
@@ -36,7 +36,7 @@ const SecuritySection: React.FC = () => {
       id: '04/',
       title: 'Полная конфиденциальность',
       desc: 'Каждый проект сопровождается юридически обязывающим договором о неразглашении (NDA). Мы гарантируем полную защиту вашей интеллектуальной собственности на всех этапах разработки. Ваша идея — это ваша собственность, и мы юридически подтверждаем свою ответственность за её сохранность и нераспространение.',
-      icon: '/swensidev/svg/dotenv.svg',
+      icon: '/swensiteam/svg/dotenv.svg',
       size: 'lg:col-span-1 lg:row-span-2 lg:row-start-2',
       bg: 'bg-[#0A0A0A]',
       tag: 'Legal'
@@ -45,7 +45,7 @@ const SecuritySection: React.FC = () => {
       id: '05/',
       title: 'Infrastructure',
       desc: 'Развертывание в изолированных облачных кластерах с использованием современных практик Network Isolation и Firewalls для предотвращения внешних атак.',
-      icon: '/swensidev/svg/neon.svg',
+      icon: '/swensiteam/svg/neon.svg',
       size: 'lg:col-start-3 lg:row-start-2',
       bg: 'bg-[#0A0A0A]',
       tag: 'Cloud'
@@ -54,7 +54,7 @@ const SecuritySection: React.FC = () => {
       id: '06/',
       title: 'Аудит кода',
       desc: 'Регулярное проведение автоматизированного тестирования и ручного аудита безопасности специалистами для выявления потенциальных векторов атак.',
-      icon: '/swensidev/svg/oxc.svg',
+      icon: '/swensiteam/svg/oxc.svg',
       size: 'lg:col-start-2 lg:row-start-3',
       bg: 'bg-[#0A0A0A]',
       tag: 'Auditing',
@@ -64,7 +64,7 @@ const SecuritySection: React.FC = () => {
       id: '07/',
       title: 'Активная защита',
       desc: 'Интеллектуальный мониторинг событий в реальном времени с использованием систем обнаружения вторжений (IDS) и предотвращения угроз.',
-      icon: '/swensidev/svg/microsoft-defender.svg',
+      icon: '/swensiteam/svg/microsoft-defender.svg',
       size: 'lg:col-start-3 lg:row-start-3',
       bg: 'bg-[#050505]',
       tag: 'Monitoring'

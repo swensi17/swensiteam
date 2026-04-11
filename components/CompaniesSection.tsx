@@ -74,7 +74,7 @@ const CompaniesSection: React.FC = () => {
           >
             {fullRow1.map((tech, i) => (
               <div key={i} className="h-20 sm:h-24 md:h-28 w-[110px] sm:w-[160px] md:w-[200px] border-r border-white/10 flex flex-col items-center justify-center hover:bg-white/[0.02] transition-colors relative shrink-0">
-                <img src={`/swensidev/svg/${tech.icon}`} alt={tech.name} className={`object-contain mb-2 ${tech.wide ? 'w-16 sm:w-24 md:w-32 h-4 sm:h-6 md:h-8' : 'w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10'}`} />
+                <img src={`/swensiteam/svg/${tech.icon}`} alt={tech.name} className={`object-contain mb-2 ${tech.wide ? 'w-16 sm:w-24 md:w-32 h-4 sm:h-6 md:h-8' : 'w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10'}`} />
                 <span className="text-white/50 text-[8px] sm:text-[10px] md:text-xs font-mono tracking-widest uppercase">{tech.name}</span>
               </div>
             ))}
@@ -90,7 +90,7 @@ const CompaniesSection: React.FC = () => {
           >
             {fullRow2.map((tech, i) => (
               <div key={i} className="h-20 sm:h-24 md:h-28 w-[110px] sm:w-[160px] md:w-[200px] border-r border-white/10 flex flex-col items-center justify-center hover:bg-white/[0.02] transition-colors relative shrink-0">
-                <img src={`/swensidev/svg/${tech.icon}`} alt={tech.name} className={`object-contain mb-2 ${tech.wide ? 'w-16 sm:w-24 md:w-32 h-4 sm:h-6 md:h-8' : 'w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10'}`} />
+                <img src={`/swensiteam/svg/${tech.icon}`} alt={tech.name} className={`object-contain mb-2 ${tech.wide ? 'w-16 sm:w-24 md:w-32 h-4 sm:h-6 md:h-8' : 'w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10'}`} />
                 <span className="text-white/50 text-[8px] sm:text-[10px] md:text-xs font-mono tracking-widest uppercase">{tech.name}</span>
               </div>
             ))}
@@ -106,7 +106,7 @@ const CompaniesSection: React.FC = () => {
           >
             {fullRow3.map((tech, i) => (
               <div key={i} className="h-20 sm:h-24 md:h-28 w-[110px] sm:w-[160px] md:w-[200px] border-r border-white/10 flex flex-col items-center justify-center hover:bg-white/[0.02] transition-colors relative shrink-0">
-                <img src={`/swensidev/svg/${tech.icon}`} alt={tech.name} className={`object-contain mb-2 ${tech.wide ? 'w-16 sm:w-24 md:w-32 h-4 sm:h-6 md:h-8' : 'w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10'}`} />
+                <img src={`/swensiteam/svg/${tech.icon}`} alt={tech.name} className={`object-contain mb-2 ${tech.wide ? 'w-16 sm:w-24 md:w-32 h-4 sm:h-6 md:h-8' : 'w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10'}`} />
                 <span className="text-white/50 text-[8px] sm:text-[10px] md:text-xs font-mono tracking-widest uppercase">{tech.name}</span>
               </div>
             ))}
