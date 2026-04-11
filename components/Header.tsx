@@ -296,42 +296,7 @@ const Header = () => {
               </div>
             </nav>
 
-            {/* Mobile Menu Footer (Infinite Scrolling Integrations - Exact Hero Style) */}
-            <div className="shrink-0 bg-[#050505]/80 backdrop-blur-md border-t border-white/5 py-6 mask-edges overflow-hidden relative z-10">
-              <div className="flex w-full whitespace-nowrap items-center">
-                <motion.div
-                  className="flex items-center w-fit"
-                  animate={{ x: ["0%", "-50%"] }}
-                  transition={{ repeat: Infinity, ease: "linear", duration: 35 }}
-                >
-                  {[
-                    { name: 'YouTube', icon: 'youtube.svg' },
-                    { name: 'Instagram', icon: 'instagram-icon.svg' },
-                    { name: 'Binance', icon: 'binance.svg' },
-                    { name: 'Stripe', icon: 'stripe.svg' },
-                    { name: 'TikTok', icon: 'tiktok-icon-dark.svg' },
-                    { name: 'Figma', icon: 'figma.svg' },
-                    { name: 'Telegram', icon: 'telegram (2).svg' },
-                    { name: 'WhatsApp', icon: 'whatsapp-icon.svg' },
-                    { name: 'YouTube', icon: 'youtube.svg' },
-                    { name: 'Instagram', icon: 'instagram-icon.svg' },
-                    { name: 'Binance', icon: 'binance.svg' },
-                    { name: 'Stripe', icon: 'stripe.svg' },
-                    { name: 'TikTok', icon: 'tiktok-icon-dark.svg' },
-                    { name: 'Figma', icon: 'figma.svg' },
-                    { name: 'Telegram', icon: 'telegram (2).svg' },
-                    { name: 'WhatsApp', icon: 'whatsapp-icon.svg' }
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 px-6 shrink-0 opacity-80 hover:opacity-100 transition-opacity duration-300">
-                      <img src={`${import.meta.env.BASE_URL || '/'}svg/${item.icon}`} alt={item.name} className="w-5 h-5 object-contain" />
-                      <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-white uppercase mt-0.5">
-                        {item.name}
-                      </span>
-                    </div>
-                  ))}
-                </motion.div>
-              </div>
-            </div>
+            {/* Mobile Menu Footer - Removed to prevent duplication */}
           </motion.div>
         )}
       </AnimatePresence>
