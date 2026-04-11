@@ -151,19 +151,19 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Infinite Scrolling Integrations Bar */}
-      <div className="absolute bottom-0 left-0 w-full bg-[#050505]/80 backdrop-blur-md border-t border-white/5 z-40 py-6 mask-edges">
-        <div className="flex w-full overflow-hidden whitespace-nowrap items-center">
+      <div className="absolute bottom-0 left-0 w-full bg-[#050505]/80 backdrop-blur-md border-t border-white/5 z-40 py-4 md:py-6 overflow-hidden">
+        <div className="flex w-full whitespace-nowrap items-center mask-edges">
           <motion.div
             className="flex items-center w-fit"
             animate={{ x: ["0%", "-50%"] }}
             transition={{ repeat: Infinity, ease: "linear", duration: 35 }}
           >
             {fullRow.map((item, i) => (
-              <div key={i} className="flex items-center gap-3 px-6 md:px-8 shrink-0 opacity-80 hover:opacity-100 transition-opacity duration-300">
+              <div key={i} className="flex items-center gap-2 md:gap-3 px-4 md:px-8 shrink-0 opacity-80 hover:opacity-100 transition-opacity duration-300">
                 {item.icon && (
-                  <img src={`${BASE_URL}svg/${item.icon}`} alt={item.name} className="w-5 h-5 md:w-6 md:h-6 object-contain" />
+                  <img src={`${BASE_URL}svg/${item.icon}`} alt={item.name} className="w-4 h-4 md:w-6 md:h-6 object-contain" />
                 )}
-                <span className="text-[10px] md:text-xs font-mono font-bold tracking-[0.2em] text-white uppercase mt-0.5">
+                <span className="text-[9px] md:text-xs font-mono font-bold tracking-[0.15em] md:tracking-[0.2em] text-white uppercase mt-0.5">
                   {item.name}
                 </span>
               </div>
