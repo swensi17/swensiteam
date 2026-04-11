@@ -2,10 +2,12 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const stats = [
-  { value: '10K+', label: 'Отзывов', icon: '★' },
-  { value: '24/7', label: 'На связи', icon: '◉' },
-  { value: '100%', label: 'Гарантия', icon: '✓' },
-  { value: '3+', label: 'Года опыта', icon: '◆' },
+  { value: '10K+', label: 'Отзывов' },
+  { value: '24/7', label: 'На связи' },
+  { value: '100%', label: 'Гарантия' },
+  { value: '4+', label: 'Года опыта' },
+  { value: '200+', label: 'Проектов' },
+  { value: '100%', label: 'Качество' },
 ];
 
 const AfterMoney: React.FC = () => {
@@ -72,10 +74,10 @@ const AfterMoney: React.FC = () => {
           scale,
           transformPerspective: 1200,
         }}
-        className="relative z-10 w-full mb-8 md:mb-24"
+        className="relative z-10 w-full mb-2 md:mb-6"
       >
         <div className="text-center">
-          <div className="overflow-hidden mb-2">
+          <div className="overflow-hidden mb-4 md:mb-6">
             <motion.div style={{ y: y1, rotate: rotate1 }}>
               <span className="block text-[11vw] sm:text-[14vw] md:text-[14vw] lg:text-[12vw] font-black tracking-tighter text-[#FF3B30] leading-[0.85]">
                 Быстро.
@@ -83,7 +85,7 @@ const AfterMoney: React.FC = () => {
             </motion.div>
           </div>
           
-          <div className="overflow-hidden mb-2">
+          <div className="overflow-hidden mb-6 md:mb-10">
             <motion.div style={{ y: y2, rotate: rotate2 }}>
               <span className="block text-[9vw] sm:text-[12vw] md:text-[14vw] lg:text-[12vw] font-black tracking-tighter text-white leading-[0.85]">
                 Качественно.
@@ -101,69 +103,69 @@ const AfterMoney: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* 3D Stats */}
+      {/* 3D Stats (6 File Folders Style) */}
       <motion.div 
         style={{ 
           rotateX: isMobile ? 0 : statsRotateX,
           scale: isMobile ? 1 : statsScale,
           transformPerspective: 1000,
         }}
-        className="relative z-10 w-full border-t border-b border-white/10"
+        className="relative z-10 w-full py-10"
       >
-        <div className="grid grid-cols-2 sm:grid-cols-4">
+        <div className="grid grid-cols-2 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 px-6">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50, rotateY: -15 }}
               whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className={`relative group ${index !== 3 ? 'sm:border-r border-white/10' : ''} ${index < 2 ? 'border-b sm:border-b-0' : ''}`}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="relative group flex flex-col items-center w-full"
               style={{ transformPerspective: 800 }}
             >
               <motion.div
                 whileHover={{ 
-                  scale: 1.02,
+                  scale: 1.05,
                   rotateX: -5,
                   z: 50
                 }}
                 transition={{ duration: 0.3 }}
-                className="p-8 md:p-12 lg:p-16 text-center relative overflow-hidden"
+                className="w-full flex flex-col items-center cursor-default"
               >
-                {/* Background glow on hover */}
-                <div className="absolute inset-0 bg-gradient-to-b from-[#FF3B30]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                {/* Top accent line */}
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#FF3B30] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center" />
-                
-                {/* Icon */}
-                <motion.div 
-                  initial={{ scale: 0, rotate: -180 }}
-                  whileInView={{ scale: 1, rotate: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
-                  className="text-[#FF3B30] text-2xl md:text-3xl mb-4 opacity-60"
-                >
-                  {stat.icon}
-                </motion.div>
-                
-                {/* Value */}
-                <motion.div 
-                  className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-3 tracking-tight relative z-10"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {stat.value}
-                </motion.div>
-                
-                {/* Label */}
-                <div className="text-neutral-500 text-xs md:text-sm tracking-[0.3em] uppercase relative z-10">
-                  {stat.label}
+                {/* Folder SVG Outline */}
+                <div className="relative w-full aspect-[5/4] mb-3 flex items-center justify-center">
+                  <svg 
+                    className="absolute inset-0 w-full h-full text-white/20 group-hover:text-white transition-colors duration-500" 
+                    viewBox="0 0 100 80" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="1.2"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M 5 20 L 35 20 L 45 30 L 95 30 L 95 75 L 5 75 Z" />
+                  </svg>
+                  
+                  {/* Inside Folder Content - Absolutely centered in the body */}
+                  <div className="absolute top-[30%] bottom-0 left-0 right-0 flex flex-col items-center justify-center text-center px-2">
+                    <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight drop-shadow-md leading-none mb-1">
+                      {stat.value}
+                    </span>
+                    <span className="text-[7px] sm:text-[8px] md:text-[9px] text-neutral-400 uppercase tracking-[0.2em] leading-tight truncate w-full">
+                      {stat.label}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Corner accents */}
-                <div className="absolute bottom-4 left-4 w-4 h-4 border-l border-b border-white/10 group-hover:border-[#FF3B30]/50 transition-colors duration-300" />
-                <div className="absolute bottom-4 right-4 w-4 h-4 border-r border-b border-white/10 group-hover:border-[#FF3B30]/50 transition-colors duration-300" />
+                {/* Progress Bar Underneath */}
+                <div className="w-12 md:w-16 h-1.5 rounded-full border border-white/10 p-[1px] opacity-50 group-hover:opacity-100 transition-all duration-300">
+                   <motion.div 
+                     className="bg-white h-full rounded-full" 
+                     initial={{ width: "0%" }}
+                     whileInView={{ width: "100%" }}
+                     viewport={{ once: true }}
+                     transition={{ duration: 1.5, delay: index * 0.1 + 0.5, ease: "easeOut" }}
+                   />
+                </div>
               </motion.div>
             </motion.div>
           ))}
@@ -179,7 +181,7 @@ const AfterMoney: React.FC = () => {
         className="relative z-10 px-6 md:px-12 mt-16 md:mt-20"
       >
         <p className="text-center text-neutral-500 max-w-3xl mx-auto text-sm md:text-base lg:text-lg leading-relaxed">
-          Репутация — главный актив. Каждый проект делаю так, будто это мой собственный. 
+          Репутация — главный актив. Каждый проект делаем так, будто это наш собственный. 
           <span className="text-neutral-400"> Чистый код, современные технологии, честные сроки.</span>
         </p>
       </motion.div>

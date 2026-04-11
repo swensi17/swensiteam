@@ -74,7 +74,7 @@ const Intro: React.FC<IntroProps> = ({ onComplete }) => {
               transition={{ duration: 0.8 }}
               className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-white px-4"
             >
-              Разрабатываю как стартап<br/>
+              Разрабатываем как стартап<br/>
               <span className="text-neutral-500">даже если вы не стартап.</span>
             </motion.h1>
 

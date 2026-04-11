@@ -5,25 +5,25 @@ const steps = [
   {
     num: '01',
     title: 'Обсуждение',
-    desc: 'Вы описываете задачу — я анализирую требования, предлагаю оптимальное решение и называю сроки. Всё прозрачно и понятно с первого сообщения.',
+    desc: 'Вы описываете задачу — мы анализируем требования, предлагаем оптимальное решение и называем сроки. Всё прозрачно и понятно с первого сообщения.',
     features: ['Анализ требований', 'Оценка сроков', 'Прозрачность']
   },
   {
     num: '02',
     title: 'Разработка',
-    desc: 'Работаю быстро и качественно. Держу в курсе прогресса. Сдаю проект в срок с полной гарантией качества.',
+    desc: 'Работаем быстро и качественно. Держим в курсе прогресса. Сдаем проект в срок с полной гарантией качества.',
     features: ['Чистый код', 'Регулярные апдейты', 'Качество']
   },
   {
     num: '03',
     title: 'Тестирование',
-    desc: 'Тщательно проверяю каждую функцию. Исправляю баги до релиза. Убеждаюсь, что всё работает идеально.',
+    desc: 'Тщательно проверяем каждую функцию. Исправляем баги до релиза. Убеждаемся, что всё работает идеально.',
     features: ['QA тестирование', 'Фикс багов', 'Стабильность']
   },
   {
     num: '04',
     title: 'Запуск',
-    desc: 'Деплою проект, настраиваю сервер, передаю все доступы. Поддержка после сдачи включена.',
+    desc: 'Деплоим проект, настраиваем сервер, передаем все доступы. Поддержка после сдачи включена.',
     features: ['Деплой', 'Документация', 'Поддержка']
   }
 ];
@@ -105,9 +105,9 @@ const StepNameItem: React.FC<{
 };
 
 const Process: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLElement>(null);
   const [isMobile, setIsMobile] = React.useState(false);
-  
+
   React.useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
     checkMobile();
@@ -120,54 +120,54 @@ const Process: React.FC = () => {
     offset: ["start start", "end end"]
   });
 
-  // На мобильных показываем стильную горизонтальную цепочку
   if (isMobile) {
     return (
-      <section id="process" className="relative bg-[#050505] border-t border-white/5 py-16 px-6">
-        <div className="flex justify-between items-center mb-8">
-          <span className="text-neutral-600 text-xs tracking-[0.3em] font-mono">[ 03 / 09 ]</span>
-          <span className="text-neutral-600 text-xs tracking-[0.3em] font-mono">ПРОЦЕСС</span>
+      <section id="process" className="relative bg-[#050505] border-t border-white/5 py-24 px-6 overflow-hidden text-left">
+        <div className="mb-20">
+          <h2 className="text-4xl font-light tracking-tight text-white uppercase italic font-mono">
+            Как мы работаем
+          </h2>
         </div>
         
-        <div className="mb-12">
-          <span className="text-[#FF3B30] text-xs font-mono tracking-[0.3em] block mb-3">[ МОЙ ПРОЦЕСС ]</span>
-          <h2 className="text-3xl font-bold tracking-tight text-white">Как я работаю</h2>
-        </div>
-        
-        {/* Steps chain */}
-        <div className="space-y-0">
+        <div className="relative space-y-20">
+          {/* Razor-thin timeline line */}
+          <div className="absolute left-[7px] top-2 bottom-0 w-[1px] bg-white/10" />
+          
           {steps.map((step, index) => (
             <motion.div 
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.15 }}
-              className="relative"
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="relative pl-10"
             >
-              {/* Step card */}
-              <div className="flex gap-4">
-                {/* Left side - number and line */}
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FF3B30] to-[#FF6B5B] flex items-center justify-center shadow-lg shadow-[#FF3B30]/20">
-                    <span className="text-white font-bold text-lg">{step.num}</span>
-                  </div>
-                  {index < steps.length - 1 && (
-                    <div className="w-[2px] h-full min-h-[80px] bg-gradient-to-b from-[#FF3B30]/50 to-white/10 my-2" />
-                  )}
+              {/* Minimalist dot */}
+              <div className="absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full bg-[#050505] border border-white/20 flex items-center justify-center z-10 group">
+                <div className="w-1.5 h-1.5 bg-[#FF3B30] rounded-full" />
+              </div>
+              
+              {/* Minimal content */}
+              <div className="flex flex-col">
+                <div className="flex items-baseline gap-3 mb-3">
+                  <h3 className="text-2xl font-medium text-white tracking-tight uppercase">
+                    {step.title}
+                  </h3>
                 </div>
                 
-                {/* Right side - content */}
-                <div className="flex-1 pb-6">
-                  <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
-                  <p className="text-neutral-400 text-sm leading-relaxed mb-4">{step.desc}</p>
-                  
-                  {/* Features */}
-                  <div className="flex flex-wrap gap-2">
-                    {step.features.map((f, i) => (
-                      <span key={i} className="px-3 py-1 text-[10px] font-mono tracking-wider bg-white/5 text-neutral-400 border border-white/10 rounded-full">{f}</span>
-                    ))}
-                  </div>
+                <p className="text-neutral-500 text-[13px] leading-relaxed mb-6 max-w-md">
+                  {step.desc}
+                </p>
+                
+                {/* Clean tags */}
+                <div className="flex flex-wrap gap-x-4 gap-y-2">
+                  {step.features.map((f, i) => (
+                    <span 
+                      key={i} 
+                      className="text-[9px] font-mono tracking-[0.2em] text-neutral-600 uppercase"
+                    >
+                      / {f}
+                    </span>
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -232,10 +232,10 @@ const Process: React.FC = () => {
               className="mb-10 text-right"
             >
               <span className="text-[#FF3B30] text-xs font-mono tracking-[0.3em] block mb-3">
-                [ МОЙ ПРОЦЕСС ]
+                [ НАШ ПРОЦЕСС ]
               </span>
               <h2 className="text-xl md:text-2xl font-medium tracking-[0.15em] uppercase text-neutral-400">
-                КАК Я РАБОТАЮ:
+                КАК МЫ РАБОТАЕМ:
               </h2>
             </motion.div>
             
@@ -257,3 +257,4 @@ const Process: React.FC = () => {
 };
 
 export default Process;
+

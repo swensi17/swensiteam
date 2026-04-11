@@ -4,10 +4,11 @@ import Hero from './components/Hero';
 import Services from './components/Services';
 import SecuritySection from './components/SecuritySection';
 import Process from './components/Process';
-import DavidGoliath from './components/DavidGoliath';
+
 import AfterMoney from './components/AfterMoney';
 import PoolRules from './components/PoolRules';
 import FAQ from './components/FAQ';
+import CompaniesSection from './components/CompaniesSection';
 import Footer from './components/Footer';
 
 function App() {
@@ -17,9 +18,10 @@ function App() {
       <main>
         <Hero />
         <Services />
+        <CompaniesSection />
         <SecuritySection />
         <Process />
-        <DavidGoliath />
+
         <AfterMoney />
         <PoolRules />
         <FAQ />

@@ -5,12 +5,12 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 const services = [
   { 
     name: "Telegram боты", 
-    desc: "Разрабатываю ботов любой сложности — от простых информационных до сложных enterprise-решений с платежами, CRM-интеграциями и автоматизацией бизнес-процессов.",
+    desc: "Разрабатываем ботов любой сложности — от простых информационных до сложных enterprise-решений с платежами, CRM-интеграциями и автоматизацией бизнес-процессов.",
     features: ["Платёжные системы", "CRM интеграции", "Автоматизация"]
   },
   { 
     name: "Веб-сайты", 
-    desc: "Создаю современные веб-приложения на React и TypeScript. Лендинги, корпоративные сайты, SPA-приложения, админ-панели с адаптивным дизайном.",
+    desc: "Создаем современные веб-приложения на React и TypeScript. Лендинги, корпоративные сайты, SPA-приложения, админ-панели с адаптивным дизайном.",
     features: ["React / TypeScript", "Адаптивный дизайн", "Высокая скорость"]
   },
   { 
@@ -25,7 +25,7 @@ const services = [
   },
   { 
     name: "API", 
-    desc: "Проектирую и разрабатываю REST и GraphQL API. Интеграции с любыми внешними сервисами, платёжными системами, социальными сетями и мессенджерами.",
+    desc: "Проектируем и разрабатываем REST и GraphQL API. Интеграции с любыми внешними сервисами, платёжными системами, социальными сетями и мессенджерами.",
     features: ["REST / GraphQL", "Интеграции", "Документация"]
   },
   { 
@@ -111,8 +111,8 @@ const Services: React.FC = () => {
         </div>
         
         <div className="mb-12">
-          <span className="text-[#FF3B30] text-xs font-mono tracking-[0.3em] block mb-3">[ МОИ УСЛУГИ ]</span>
-          <h2 className="text-3xl font-bold tracking-tight text-white">Что я делаю</h2>
+          <span className="text-[#FF3B30] text-xs font-mono tracking-[0.3em] block mb-3">[ НАШИ УСЛУГИ ]</span>
+          <h2 className="text-3xl font-bold tracking-tight text-white">Что мы делаем</h2>
         </div>
         
         {/* Timeline chain */}
@@ -190,10 +190,10 @@ const Services: React.FC = () => {
               className="mb-10"
             >
               <span className="text-[#FF3B30] text-xs font-mono tracking-[0.3em] block mb-3">
-                [ МОИ УСЛУГИ ]
+                [ НАШИ УСЛУГИ ]
               </span>
               <h2 className="text-xl md:text-2xl font-medium tracking-[0.15em] uppercase text-neutral-400">
-                ЧТО Я ДЕЛАЮ:
+                ЧТО МЫ ДЕЛАЕМ:
               </h2>
             </motion.div>
             

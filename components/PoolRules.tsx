@@ -53,7 +53,7 @@ const PoolRules: React.FC = () => {
           className="text-center md:text-left"
         >
           <span className="text-[#FF3B30] text-xs font-mono tracking-[0.3em] block mb-4 md:mb-6">
-            [ ПОЧЕМУ Я ]
+            [ ПОЧЕМУ МЫ ]
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.9]">
             Гарантии <span className="text-neutral-700">качества</span>
@@ -169,7 +169,7 @@ const PoolRules: React.FC = () => {
                 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl text-white font-light leading-tight tracking-tight mb-8 md:mb-12"
               >
                 Качество строится годами, а теряется за секунду. 
-                <span className="text-neutral-500"> Поэтому каждый проект — как первый.</span>
+                <span className="text-neutral-500"> Поэтому каждый проект для нашей команды — как первый.</span>
               </motion.p>
               
               <motion.footer
