@@ -151,7 +151,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Infinite Scrolling Integrations Bar */}
-      <div className="absolute bottom-0 left-0 w-full bg-[#050505]/80 backdrop-blur-md border-t border-white/5 z-40 py-4 md:py-6 overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-full bg-[#050505]/80 backdrop-blur-md border-t border-white/5 z-10 py-4 md:py-6 overflow-hidden">
         <div className="flex w-full whitespace-nowrap items-center mask-edges">
           <motion.div
             className="flex items-center w-fit"
