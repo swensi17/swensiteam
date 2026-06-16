@@ -5,7 +5,7 @@ const faqData = [
   {
     num: '01',
     q: 'How much does it cost?',
-    a: 'The price depends on the project complexity. Message us on Telegram @aileader17 — we'll discuss the details and give you an exact quote.'
+    a: 'The price depends on the project complexity. Message us on Telegram @aileader17 — we will discuss the details and give you an exact quote.'
   },
   {
     num: '02',
@@ -140,7 +140,7 @@ const FAQ: React.FC = () => {
               </h2>
               
               <p className="text-neutral-500 mt-6 md:mt-8 max-w-sm text-sm leading-relaxed mx-auto lg:mx-0">
-                Didn't find the answer to your question? Write to us directly — we'll respond within an hour.
+                Can&apos;t find an answer? Write to us directly and we will respond within an hour.
               </p>
               
               <motion.a
