@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+п»їimport React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Footer: React.FC = () => {
@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
     offset: ["start end", "end end"]
   });
 
-  // Лого появляется только когда пользователь почти докрутил до конца
+  // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
   const logoY = useTransform(scrollYProgress, [0.7, 1], [200, 0]);
   const logoOpacity = useTransform(scrollYProgress, [0.7, 1], [0, 1]);
 
@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
         
         {/* Top Left: Logo / Input / Socials */}
         <div className="lg:col-span-5 flex flex-col gap-6">
-          <div className="font-semibold text-lg tracking-tight">aileader.Dev ™</div>
+          <div className="font-semibold text-lg tracking-tight">aileader.Dev пїЅ</div>
           
           <div className="flex w-full max-w-sm mt-4">
             <input 
@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
               rel="noreferrer"
               className="bg-[#FF3B30] text-white px-6 py-3 rounded-r-md font-medium text-sm hover:bg-white hover:text-black transition-colors whitespace-nowrap flex items-center justify-center"
             >
-              Написать
+              пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             </a>
           </div>
 
@@ -55,23 +55,23 @@ const Footer: React.FC = () => {
         {/* Top Right: Columns */}
         <div className="lg:col-span-7 grid grid-cols-2 gap-8">
           <div className="flex flex-col gap-5">
-            <h4 className="font-semibold text-white/90 mb-2">Услуги</h4>
-            <a href="#services" className="text-neutral-400 hover:text-[#FF3B30] transition-colors text-sm">Telegram боты</a>
-            <a href="#services" className="text-neutral-400 hover:text-[#FF3B30] transition-colors text-sm">Веб-приложения</a>
-            <a href="#services" className="text-neutral-400 hover:text-[#FF3B30] transition-colors text-sm">Парсеры & API</a>
-            <a href="#services" className="text-neutral-400 hover:text-[#FF3B30] transition-colors text-sm">Мобильные приложения</a>
+            <h4 className="font-semibold text-white/90 mb-2">пїЅпїЅпїЅпїЅпїЅпїЅ</h4>
+            <a href="#services" className="text-neutral-400 hover:text-[#FF3B30] transition-colors text-sm">Telegram пїЅпїЅпїЅпїЅ</a>
+            <a href="#services" className="text-neutral-400 hover:text-[#FF3B30] transition-colors text-sm">пїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</a>
+            <a href="#services" className="text-neutral-400 hover:text-[#FF3B30] transition-colors text-sm">пїЅпїЅпїЅпїЅпїЅпїЅпїЅ & API</a>
+            <a href="#services" className="text-neutral-400 hover:text-[#FF3B30] transition-colors text-sm">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</a>
           </div>
           <div className="flex flex-col gap-5">
-            <h4 className="font-semibold text-white/90 mb-2">Ссылки</h4>
-            <a href="https://t.me/aileader17" target="_blank" rel="noreferrer" className="text-neutral-400 hover:text-white transition-colors text-sm">Написать мне</a>
-            <a href="https://t.me/amirjanjik" target="_blank" rel="noreferrer" className="text-neutral-400 hover:text-white transition-colors text-sm">Отзывы (10K+)</a>
-            <a href="https://t.me/aileaderorder" target="_blank" rel="noreferrer" className="text-neutral-400 hover:text-white transition-colors text-sm">Архив заказов</a>
+            <h4 className="font-semibold text-white/90 mb-2">пїЅпїЅпїЅпїЅпїЅпїЅ</h4>
+            <a href="https://t.me/aileader17" target="_blank" rel="noreferrer" className="text-neutral-400 hover:text-white transition-colors text-sm">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ</a>
+            <a href="https://t.me/amirjanjik" target="_blank" rel="noreferrer" className="text-neutral-400 hover:text-white transition-colors text-sm">пїЅпїЅпїЅпїЅпїЅпїЅ (10K+)</a>
+            <a href="https://t.me/aileaderorder" target="_blank" rel="noreferrer" className="text-neutral-400 hover:text-white transition-colors text-sm">пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</a>
           </div>
           <div className="hidden lg:flex flex-col gap-5">
-            <h4 className="font-semibold text-white/90 mb-2">Компания</h4>
-            <a href="#about" className="text-neutral-400 hover:text-white transition-colors text-sm">Обо мне</a>
-            <a href="#process" className="text-neutral-400 hover:text-white transition-colors text-sm">Процесс</a>
-            <a href="#contacts" className="text-neutral-400 hover:text-white transition-colors text-sm">Контакты</a>
+            <h4 className="font-semibold text-white/90 mb-2">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</h4>
+            <a href="#about" className="text-neutral-400 hover:text-white transition-colors text-sm">пїЅпїЅпїЅ пїЅпїЅпїЅ</a>
+            <a href="#process" className="text-neutral-400 hover:text-white transition-colors text-sm">пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</a>
+            <a href="#contacts" className="text-neutral-400 hover:text-white transition-colors text-sm">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</a>
           </div>
         </div>
 

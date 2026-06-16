@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const faqData = [
   {
     num: '01',
-    q: 'Сколько стоит?',
-    a: 'Цена зависит от сложности проекта. Напиши в Telegram @aileader17 — обсудим детали и назову точную стоимость.'
+    q: 'How much does it cost?',
+    a: 'The price depends on the project complexity. Message us on Telegram @aileader17 — we'll discuss the details and give you an exact quote.'
   },
   {
     num: '02',
-    q: 'Как происходит оплата?',
-    a: 'Предоплата 50% перед началом работы, остаток после сдачи проекта. Мы работаем честно — 10К+ отзывов это подтверждают.'
+    q: 'How does payment work?',
+    a: '50% prepayment before starting, the rest after project delivery. We work honestly — 10K+ reviews confirm this.'
   },
   {
     num: '03',
-    q: 'Какие гарантии?',
-    a: 'Полная гарантия качества. Правки в рамках ТЗ бесплатно. Поддержка после сдачи проекта.'
+    q: 'What guarantees do you offer?',
+    a: 'Full quality guarantee. Revisions within the scope are free. Post-delivery support included.'
   },
   {
     num: '04',
-    q: 'Где посмотреть отзывы?',
-    a: 'Более 10 000 отзывов в канале @amirjanjik. Архив заказов с информацией о клиентах: @aileaderorder'
+    q: 'Where can I see reviews?',
+    a: 'Over 10,000 reviews on @amirjanjik channel. Order archive with client info: @aileaderorder'
   }
 ];
 
@@ -116,7 +116,7 @@ const FAQ: React.FC = () => {
       <div className="px-6 md:px-12 mb-10 md:mb-24">
         <div className="flex justify-between items-center text-[10px] md:text-xs tracking-[0.3em] font-mono text-neutral-600 border-b border-white/5 pb-4">
           <span>[ 08 / 09 ]</span>
-          <span>ВОПРОСЫ</span>
+          <span>QUESTIONS</span>
         </div>
       </div>
 
@@ -133,14 +133,14 @@ const FAQ: React.FC = () => {
               className="text-center lg:text-left"
             >
               <span className="text-[#FF3B30] text-xs font-mono tracking-widest block mb-4 md:mb-6">
-                [ ЧАСТЫЕ ВОПРОСЫ ]
+                [ FREQUENTLY ASKED ]
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95]">
-                Вопросы <span className="text-neutral-600">и ответы</span>
+                QUESTIONS <span className="text-neutral-600">& Answers</span>
               </h2>
               
               <p className="text-neutral-500 mt-6 md:mt-8 max-w-sm text-sm leading-relaxed mx-auto lg:mx-0">
-                Не нашли ответ на свой вопрос? Напишите нам напрямую — ответим в течение часа.
+                Didn't find the answer to your question? Write to us directly — we'll respond within an hour.
               </p>
               
               <motion.a
@@ -151,7 +151,7 @@ const FAQ: React.FC = () => {
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center justify-center gap-3 mt-6 md:mt-8 border border-white/30 py-3 md:py-4 px-6 md:px-8 group hover:bg-white transition-all duration-300 w-full sm:w-auto"
               >
-                <span className="text-white text-[10px] md:text-xs font-bold tracking-widest uppercase group-hover:text-black transition-colors duration-300">НАПИСАТЬ В TELEGRAM</span>
+                <span className="text-white text-[10px] md:text-xs font-bold tracking-widest uppercase group-hover:text-black transition-colors duration-300">MESSAGE ON TELEGRAM</span>
                 <svg 
                   className="w-3 h-3 md:w-4 md:h-4 text-white group-hover:text-black group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" 
                   viewBox="0 0 24 24" 

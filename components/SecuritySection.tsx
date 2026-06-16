@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldAlert, Fingerprint, Lock, ShieldCheck, Zap, MessageSquare, Key, Shield } from 'lucide-react';
 
@@ -6,18 +6,18 @@ const SecuritySection: React.FC = () => {
   const securityFeatures = [
     {
       id: '01/',
-      title: 'Безопасный доступ',
-      desc: 'Многофакторная аутентификация (MFA) и строгий контроль доступа (IAM) обеспечивают защиту вашей учетной записи от несанкционированного проникновения.',
-      icon: '/aileaderteam/svg/surrealdb.svg',
+      title: 'Secure Access',
+      desc: 'Multi-factor authentication (MFA) and strict access control (IAM) protect your account from unauthorized access.',
+      icon: '/swensiteam/svg/surrealdb.svg',
       size: 'lg:col-start-1 lg:row-start-1',
       bg: 'bg-[#050505]',
       tag: 'Identity'
     },
     {
       id: '02/',
-      title: 'Шифрование данных',
-      desc: 'Мы используем алгоритм AES-256 для защиты всех данных "в покое" и протоколы TLS для обеспечения безопасности при передаче информации. Это гарантирует, что даже в случае перехвата трафика, ваши данные останутся недоступными для третьих лиц. Мы применяем сквозное шифрование для всех критических узлов инфраструктуры.',
-      icon: '/aileaderteam/svg/pocket-base.svg',
+      title: 'Data Encryption',
+      desc: 'We use AES-256 encryption for all data at rest and TLS protocols to ensure security during data transmission. This guarantees that even if traffic is intercepted, your data remains inaccessible to third parties. We apply end-to-end encryption for all critical infrastructure nodes.',
+      icon: '/swensiteam/svg/pocket-base.svg',
       size: 'lg:col-start-2 lg:row-span-2 lg:row-start-1',
       bg: 'bg-[#050505]',
       tag: 'Cryptography'
@@ -25,8 +25,8 @@ const SecuritySection: React.FC = () => {
     {
       id: '03/',
       title: 'Uptime 99.9%',
-      desc: 'Наша инфраструктура спроектирована с учетом отказоустойчивости, что гарантирует стабильную работу ваших сервисов даже при пиковых нагрузках.',
-      icon: '/aileaderteam/svg/vitest.svg',
+      desc: 'Our infrastructure is designed with fault tolerance in mind, ensuring stable operation of your services even under peak loads.',
+      icon: '/swensiteam/svg/vitest.svg',
       size: 'lg:col-start-3 lg:row-start-1',
       bg: 'bg-[#050505]',
       tag: 'Reliability',
@@ -34,9 +34,9 @@ const SecuritySection: React.FC = () => {
     },
     {
       id: '04/',
-      title: 'Полная конфиденциальность',
-      desc: 'Каждый проект сопровождается юридически обязывающим договором о неразглашении (NDA). Мы гарантируем полную защиту вашей интеллектуальной собственности на всех этапах разработки. Ваша идея — это ваша собственность, и мы юридически подтверждаем свою ответственность за её сохранность и нераспространение.',
-      icon: '/aileaderteam/svg/dotenv.svg',
+      title: 'Full Confidentiality',
+      desc: 'Every project comes with a legally binding non-disclosure agreement (NDA). We guarantee full protection of your intellectual property at all stages of development. Your idea is your property, and we legally confirm our responsibility for its safety and non-disclosure.',
+      icon: '/swensiteam/svg/dotenv.svg',
       size: 'lg:col-span-1 lg:row-span-2 lg:row-start-2',
       bg: 'bg-[#0A0A0A]',
       tag: 'Legal'
@@ -44,17 +44,17 @@ const SecuritySection: React.FC = () => {
     {
       id: '05/',
       title: 'Infrastructure',
-      desc: 'Развертывание в изолированных облачных кластерах с использованием современных практик Network Isolation и Firewalls для предотвращения внешних атак.',
-      icon: '/aileaderteam/svg/neon.svg',
+      desc: 'Deployment in isolated cloud clusters using modern Network Isolation and Firewall practices to prevent external attacks.',
+      icon: '/swensiteam/svg/neon.svg',
       size: 'lg:col-start-3 lg:row-start-2',
       bg: 'bg-[#0A0A0A]',
       tag: 'Cloud'
     },
     {
       id: '06/',
-      title: 'Аудит кода',
-      desc: 'Регулярное проведение автоматизированного тестирования и ручного аудита безопасности специалистами для выявления потенциальных векторов атак.',
-      icon: '/aileaderteam/svg/oxc.svg',
+      title: 'Code Audit',
+      desc: 'Regular automated testing and manual security audits by specialists to identify potential attack vectors.',
+      icon: '/swensiteam/svg/oxc.svg',
       size: 'lg:col-start-2 lg:row-start-3',
       bg: 'bg-[#0A0A0A]',
       tag: 'Auditing',
@@ -62,9 +62,9 @@ const SecuritySection: React.FC = () => {
     },
     {
       id: '07/',
-      title: 'Активная защита',
-      desc: 'Интеллектуальный мониторинг событий в реальном времени с использованием систем обнаружения вторжений (IDS) и предотвращения угроз.',
-      icon: '/aileaderteam/svg/microsoft-defender.svg',
+      title: 'Active Protection',
+      desc: 'Intelligent real-time event monitoring using intrusion detection systems (IDS) and threat prevention.',
+      icon: '/swensiteam/svg/microsoft-defender.svg',
       size: 'lg:col-start-3 lg:row-start-3',
       bg: 'bg-[#050505]',
       tag: 'Monitoring'
@@ -81,8 +81,8 @@ const SecuritySection: React.FC = () => {
           viewport={{ once: true }}
           className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 text-left"
         >
-          Ваш проект под<br />
-          <span className="text-[#FF3B30]">надёжной защитой.</span>
+          Your project is under<br />
+          <span className="text-[#FF3B30]">reliable protection.</span>
         </motion.h2>
       </div>
 

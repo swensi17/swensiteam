@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ChevronDown, 
@@ -14,59 +14,59 @@ import {
 
 const navItems = [
   { 
-    label: 'Главная', href: '#home', id: 'home', icon: Compass,
+    label: 'Home', href: '#home', id: 'home', icon: Compass,
     menu: {
-      title: "Точка отсчета",
-      desc: "Знакомство с нашей философией разработки и ключевыми принципами создания цифровых продуктов элитного качества под ключ.",
-      subItems: ["Обзор", "Наши технологии", "Профиль Студии", "Миссия и Видение"]
+      title: "Starting Point",
+      desc: "Learn about our development philosophy and key principles for creating premium digital products.",
+      subItems: ["Overview", "Our Technologies", "Studio Profile", "Mission & Vision"]
     }
   },
   { 
-    label: 'Услуги', href: '#services', id: 'services', icon: Briefcase,
+    label: 'Services', href: '#services', id: 'services', icon: Briefcase,
     menu: {
-      title: "Комплексная разработка",
-      desc: "Воплощаем функциональность: от чистой архитектуры и дизайна до написания масштабируемого кода. Мы покрываем все потребности современного бизнеса.",
-      subItems: ["Фронтенд Решения", "Бэкенд Системы", "Telegram-боты", "UI/UX Дизайн"]
+      title: "Full-cycle Development",
+      desc: "We deliver functionality: from clean architecture and design to writing scalable code. We cover all modern business needs.",
+      subItems: ["Frontend Solutions", "Backend Systems", "Telegram Bots", "UI/UX Design"]
     }
   },
   { 
-    label: 'Стек', href: '#stack', id: 'stack', icon: Code2,
+    label: 'Stack', href: '#stack', id: 'stack', icon: Code2,
     menu: {
-      title: "Технологический путь",
-      desc: "Мы используем самые актуальные фреймворки и языки программирования для создания продуктов, которые опережают время.",
+      title: "Technology Path",
+      desc: "We use the most current frameworks and programming languages to create products that are ahead of their time.",
       subItems: ["Frontend Stack", "Backend Stack", "Database systems", "Cloud & Infra"]
     }
   },
   { 
-    label: 'Безопасность', href: '#security', id: 'security', icon: ShieldCheck,
+    label: 'Security', href: '#security', id: 'security', icon: ShieldCheck,
     menu: {
-      title: "Информационная защита",
-      desc: "Мы берем на себя полную ответственность за сохранность ваших данных. Сертификаты шифрования и стабильность инфраструктуры — наш приоритет.",
-      subItems: ["Аудит уязвимостей", "Защита от DDoS", "Резервные копии", "Шифрование данных"]
+      title: "Information Security",
+      desc: "We take full responsibility for your data safety. Encryption certificates and infrastructure stability are our priority.",
+      subItems: ["Vulnerability Audit", "DDoS Protection", "Backups", "Data Encryption"]
     }
   },
   { 
-    label: 'Процесс', href: '#process', id: 'process', icon: GitMerge,
+    label: 'Process', href: '#process', id: 'process', icon: GitMerge,
     menu: {
-      title: "Прозрачные этапы",
-      desc: "Высокий уровень контроля на каждом шаге. Вы всегда точно знаете, на каком этапе находится ваш продукт, благодаря нашей методологии.",
-      subItems: ["Брифинг & Анализ", "Проектирование", "Разработка и Тесты", "Релиз & Поддержка"]
+      title: "Transparent Stages",
+      desc: "High level of control at every step. You always know exactly what stage your product is at, thanks to our methodology.",
+      subItems: ["Briefing & Analysis", "Design", "Development & Tests", "Release & Support"]
     }
   },
   { 
     label: 'FAQ', href: '#faq', id: 'faq', icon: HelpCircle,
     menu: {
-      title: "База знаний",
-      desc: "Наши ответы на самые популярные вопросы: от сроков разработки до юридических гарантий и условий поддержки.",
-      subItems: ["Гарантии и Договор", "Сроки разработки", "Оплата и Поддержка", "Техническое задание"]
+      title: "Knowledge Base",
+      desc: "Our answers to the most popular questions: from development timelines to legal guarantees and support terms.",
+      subItems: ["Guarantees & Contract", "Development Timeline", "Payment & Support", "Technical Specification"]
     }
   },
   { 
-    label: 'Контакты', href: '#contacts', id: 'contacts', icon: Mail,
+    label: 'Contacts', href: '#contacts', id: 'contacts', icon: Mail,
     menu: {
-      title: "Прямая связь",
-      desc: "Остались вопросы или готовы начать проект? Напишите нам прямо сейчас, мы всегда на связи и открыты к диалогу.",
-      subItems: ["Написать в Telegram", "Оставить заявку", "Наш канал", "Наш офис"]
+      title: "Direct Contact",
+      desc: "Have questions or ready to start a project? Write to us now, we are always available and open to dialogue.",
+      subItems: ["Message on Telegram", "Submit Request", "Our Channel", "Our Office"]
     }
   }
 ];

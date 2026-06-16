@@ -140,7 +140,7 @@ const Hero: React.FC = () => {
               rel="noopener noreferrer"
               className="group flex items-center justify-center gap-3 px-8 md:px-10 py-4 md:py-5 bg-[#FF3B30] text-white font-mono font-bold text-[13px] sm:text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 min-w-[200px] md:min-w-[240px] relative overflow-hidden"
             >
-              <span className="relative z-10 transition-transform duration-300 group-hover:-translate-x-1">ОБСУДИТЬ ПРОЕКТ</span>
+              <span className="relative z-10 transition-transform duration-300 group-hover:-translate-x-1">DISCUSS PROJECT</span>
               <svg className="w-4 h-4 transition-all duration-300 transform group-hover:translate-x-1 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <line x1="7" y1="17" x2="17" y2="7"></line>
                 <polyline points="7 7 17 7 17 17"></polyline>

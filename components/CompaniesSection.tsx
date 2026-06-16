@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 
 const CompaniesSection: React.FC = () => {
@@ -46,13 +46,13 @@ const CompaniesSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-20">
           <div className="lg:col-span-5 text-left">
             <span className="text-[#FF3B30] text-xs font-mono tracking-widest block mb-4 md:mb-6 uppercase">
-              [ Инструменты ]
+              [ Tools ]
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] mb-6">
-              Стек <span className="text-[#FF3B30]">решений</span>
+              Tech <span className="text-[#FF3B30]">Stack</span>
             </h2>
             <p className="text-neutral-500 max-w-sm text-sm leading-relaxed">
-              Мы используем передовые технологии и сотрудничаем с ведущими платформами для обеспечения максимальной скорости и безопасности.
+              We use cutting-edge technologies and partner with leading platforms to ensure maximum speed and security.
             </p>
           </div>
         </div>
@@ -74,7 +74,7 @@ const CompaniesSection: React.FC = () => {
           >
             {fullRow1.map((tech, i) => (
               <div key={i} className="h-20 sm:h-24 md:h-28 w-[110px] sm:w-[160px] md:w-[200px] border-r border-white/10 flex flex-col items-center justify-center hover:bg-white/[0.02] transition-colors relative shrink-0">
-                <img src={`/aileaderteam/svg/${tech.icon}`} alt={tech.name} className={`object-contain mb-2 ${tech.wide ? 'w-16 sm:w-24 md:w-32 h-4 sm:h-6 md:h-8' : 'w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10'}`} />
+                <img src={`/swensiteam/svg/${tech.icon}`} alt={tech.name} className={`object-contain mb-2 ${tech.wide ? 'w-16 sm:w-24 md:w-32 h-4 sm:h-6 md:h-8' : 'w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10'}`} />
                 <span className="text-white/50 text-[8px] sm:text-[10px] md:text-xs font-mono tracking-widest uppercase">{tech.name}</span>
               </div>
             ))}
@@ -90,7 +90,7 @@ const CompaniesSection: React.FC = () => {
           >
             {fullRow2.map((tech, i) => (
               <div key={i} className="h-20 sm:h-24 md:h-28 w-[110px] sm:w-[160px] md:w-[200px] border-r border-white/10 flex flex-col items-center justify-center hover:bg-white/[0.02] transition-colors relative shrink-0">
-                <img src={`/aileaderteam/svg/${tech.icon}`} alt={tech.name} className={`object-contain mb-2 ${tech.wide ? 'w-16 sm:w-24 md:w-32 h-4 sm:h-6 md:h-8' : 'w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10'}`} />
+                <img src={`/swensiteam/svg/${tech.icon}`} alt={tech.name} className={`object-contain mb-2 ${tech.wide ? 'w-16 sm:w-24 md:w-32 h-4 sm:h-6 md:h-8' : 'w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10'}`} />
                 <span className="text-white/50 text-[8px] sm:text-[10px] md:text-xs font-mono tracking-widest uppercase">{tech.name}</span>
               </div>
             ))}
@@ -106,7 +106,7 @@ const CompaniesSection: React.FC = () => {
           >
             {fullRow3.map((tech, i) => (
               <div key={i} className="h-20 sm:h-24 md:h-28 w-[110px] sm:w-[160px] md:w-[200px] border-r border-white/10 flex flex-col items-center justify-center hover:bg-white/[0.02] transition-colors relative shrink-0">
-                <img src={`/aileaderteam/svg/${tech.icon}`} alt={tech.name} className={`object-contain mb-2 ${tech.wide ? 'w-16 sm:w-24 md:w-32 h-4 sm:h-6 md:h-8' : 'w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10'}`} />
+                <img src={`/swensiteam/svg/${tech.icon}`} alt={tech.name} className={`object-contain mb-2 ${tech.wide ? 'w-16 sm:w-24 md:w-32 h-4 sm:h-6 md:h-8' : 'w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10'}`} />
                 <span className="text-white/50 text-[8px] sm:text-[10px] md:text-xs font-mono tracking-widest uppercase">{tech.name}</span>
               </div>
             ))}

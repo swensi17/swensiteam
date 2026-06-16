@@ -1,47 +1,47 @@
-import React, { useRef } from 'react';
+﻿import React, { useRef } from 'react';
 import { Button } from './ui/Button';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const services = [
   { 
-    name: "Telegram боты", 
-    desc: "Разрабатываем ботов любой сложности — от простых информационных до сложных enterprise-решений с платежами, CRM-интеграциями и автоматизацией бизнес-процессов.",
-    features: ["Платёжные системы", "CRM интеграции", "Автоматизация"]
+    name: "Telegram Bots", 
+    desc: "We develop bots of any complexity — from simple informational ones to complex enterprise solutions with payments, CRM integrations, and business process automation.",
+    features: ["Payment Systems", "CRM Integrations", "Automation"]
   },
   { 
-    name: "Веб-сайты", 
-    desc: "Создаем современные веб-приложения на React и TypeScript. Лендинги, корпоративные сайты, SPA-приложения, админ-панели с адаптивным дизайном.",
-    features: ["React / TypeScript", "Адаптивный дизайн", "Высокая скорость"]
+    name: "Websites", 
+    desc: "We create modern web applications with React and TypeScript. Landing pages, corporate sites, SPA applications, admin panels with responsive design.",
+    features: ["React / TypeScript", "Responsive Design", "High Performance"]
   },
   { 
     name: "iOS / Android", 
-    desc: "Нативные и кроссплатформенные мобильные приложения. Использую Swift для iOS, Kotlin и Java для Android. Публикация в App Store и Google Play.",
-    features: ["Swift / Kotlin", "Публикация в сторы", "Push-уведомления"]
+    desc: "Native and cross-platform mobile apps. Using Swift for iOS, Kotlin and Java for Android. Publishing to App Store and Google Play.",
+    features: ["Swift / Kotlin", "Store Publishing", "Push Notifications"]
   },
   { 
-    name: "Парсеры", 
-    desc: "Автоматический сбор данных с любых сайтов. Обход защит, работа с динамическим контентом, экспорт в удобные форматы. Мониторинг цен и конкурентов.",
-    features: ["Обход защит", "Динамический контент", "Экспорт данных"]
+    name: "Parsers", 
+    desc: "Automatic data collection from any website. Bypass protections, work with dynamic content, export to convenient formats. Price and competitor monitoring.",
+    features: ["Protection Bypass", "Dynamic Content", "Data Export"]
   },
   { 
     name: "API", 
-    desc: "Проектируем и разрабатываем REST и GraphQL API. Интеграции с любыми внешними сервисами, платёжными системами, социальными сетями и мессенджерами.",
-    features: ["REST / GraphQL", "Интеграции", "Документация"]
+    desc: "We design and develop REST and GraphQL APIs. Integrations with any external services, payment systems, social networks, and messengers.",
+    features: ["REST / GraphQL", "Integrations", "Documentation"]
   },
   { 
     name: "Desktop", 
-    desc: "Десктопные приложения для Windows, Linux и macOS. Утилиты, автоматизация рабочих процессов, работа с файлами и базами данных.",
-    features: ["Windows / macOS", "Автоматизация", "Кроссплатформа"]
+    desc: "Desktop applications for Windows, Linux, and macOS. Utilities, workflow automation, file and database management.",
+    features: ["Windows / macOS", "Automation", "Cross-platform"]
   },
   { 
     name: "CI/CD", 
-    desc: "Настройка автоматического деплоя и тестирования. GitHub Actions, GitLab CI, Jenkins. Ускорение разработки и минимизация ошибок.",
-    features: ["GitHub Actions", "Автотесты", "Быстрый деплой"]
+    desc: "Setting up automatic deployment and testing. GitHub Actions, GitLab CI, Jenkins. Faster development and fewer errors.",
+    features: ["GitHub Actions", "Auto Tests", "Fast Deploy"]
   },
   { 
     name: "VPS", 
-    desc: "Полная настройка серверной инфраструктуры. Docker-контейнеры, Nginx, SSL-сертификаты, мониторинг, бэкапы и защита от атак.",
-    features: ["Docker / Nginx", "SSL / Безопасность", "Мониторинг"]
+    desc: "Full server infrastructure setup. Docker containers, Nginx, SSL certificates, monitoring, backups, and attack protection.",
+    features: ["Docker / Nginx", "SSL / Security", "Monitoring"]
   },
 ];
 
@@ -65,17 +65,17 @@ const ServiceDescription: React.FC<{
       style={{ opacity, y, rotateX, scale, transformPerspective: 1000 }}
       className="absolute inset-0 flex flex-col justify-center origin-center"
     >
-      {/* Заголовок - большой и стильный */}
+      {/* Title - large and stylish */}
       <h3 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight leading-[1.1] text-white mb-6">
         {service.name}
       </h3>
 
-      {/* Описание - крупнее и читабельнее */}
+      {/* Description - larger and more readable */}
       <p className="text-neutral-300 text-lg md:text-xl lg:text-2xl leading-relaxed max-w-xl mb-8">
         {service.desc}
       </p>
 
-      {/* Номер */}
+      {/* Number */}
       <div className="flex items-center gap-4">
         <span className="text-[#FF3B30] font-mono text-sm tracking-[0.2em]">
           [ {String(index + 1).padStart(2, '0')} ]
@@ -101,18 +101,18 @@ const Services: React.FC = () => {
     offset: ["start start", "end end"]
   });
 
-  // На мобильных показываем стильную цепочку
+  // On mobile show stylish chain
   if (isMobile) {
     return (
       <section id="services" className="relative bg-[#050505] border-t border-white/5 py-16 px-6">
         <div className="flex justify-between items-center mb-8">
           <span className="text-neutral-600 text-xs tracking-[0.3em] font-mono">[ 02 / 09 ]</span>
-          <span className="text-neutral-600 text-xs tracking-[0.3em] font-mono">УСЛУГИ</span>
+          <span className="text-neutral-600 text-xs tracking-[0.3em] font-mono">SERVICES</span>
         </div>
         
         <div className="mb-12">
-          <span className="text-[#FF3B30] text-xs font-mono tracking-[0.3em] block mb-3">[ НАШИ УСЛУГИ ]</span>
-          <h2 className="text-3xl font-bold tracking-tight text-white">Что мы делаем</h2>
+          <span className="text-[#FF3B30] text-xs font-mono tracking-[0.3em] block mb-3">[ OUR SERVICES ]</span>
+          <h2 className="text-3xl font-bold tracking-tight text-white">What We Do</h2>
         </div>
         
         {/* Timeline chain */}
@@ -156,8 +156,8 @@ const Services: React.FC = () => {
         </div>
         
         <div className="mt-8 text-center">
-          <p className="text-neutral-500 text-xs mb-2">Готов обсудить ваш проект?</p>
-          <Button text="ОБСУДИТЬ ПРОЕКТ" />
+          <p className="text-neutral-500 text-xs mb-2">Ready to discuss your project?</p>
+          <Button text="DISCUSS PROJECT" />
         </div>
       </section>
     );
@@ -174,15 +174,15 @@ const Services: React.FC = () => {
         {/* Header */}
         <div className="flex justify-between items-center px-6 md:px-12 py-6">
           <span className="text-neutral-600 text-xs tracking-[0.3em] font-mono">[ 02 / 09 ]</span>
-          <span className="text-neutral-600 text-xs tracking-[0.3em] font-mono">УСЛУГИ</span>
+          <span className="text-neutral-600 text-xs tracking-[0.3em] font-mono">SERVICES</span>
         </div>
 
         {/* Main content */}
         <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 px-6 md:px-12 pb-8">
           
-          {/* Левая часть - заголовок и информация */}
+          {/* Left part - title and info */}
           <div className="flex flex-col justify-center h-full">
-            {/* Title section - слева */}
+            {/* Title section - left */}
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -190,10 +190,10 @@ const Services: React.FC = () => {
               className="mb-10"
             >
               <span className="text-[#FF3B30] text-xs font-mono tracking-[0.3em] block mb-3">
-                [ НАШИ УСЛУГИ ]
+                [ OUR SERVICES ]
               </span>
               <h2 className="text-xl md:text-2xl font-medium tracking-[0.15em] uppercase text-neutral-400">
-                ЧТО МЫ ДЕЛАЕМ:
+                WHAT WE DO:
               </h2>
             </motion.div>
             
@@ -208,15 +208,15 @@ const Services: React.FC = () => {
               ))}
             </div>
             
-            {/* Кнопка */}
+            {/* Button */}
             <div className="mt-8">
-              <Button text="ОБСУДИТЬ ПРОЕКТ" />
+              <Button text="DISCUSS PROJECT" />
             </div>
           </div>
           
-          {/* Правая часть - большие названия */}
+          {/* Right part - large names */}
           <div className="relative flex items-center justify-end overflow-hidden">
-            {/* Градиенты */}
+            {/* Gradients */}
             <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#050505] to-transparent z-10 pointer-events-none" />
             <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#050505] to-transparent z-10 pointer-events-none" />
             
@@ -246,7 +246,7 @@ const Services: React.FC = () => {
   );
 };
 
-// Компонент названия услуги
+// Service name component
 const ServiceNameItem: React.FC<{
   name: string;
   scrollProgress: any;

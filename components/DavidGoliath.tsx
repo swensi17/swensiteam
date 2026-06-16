@@ -1,41 +1,41 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const technologies = [
   { 
     name: 'Python',
     category: 'Backend',
-    desc: 'Основной язык для backend-разработки, автоматизации и парсинга. Telegram боты, API, скрипты любой сложности.',
-    features: ['Django / FastAPI', 'Telegram Bots', 'Парсинг', 'Автоматизация']
+    desc: 'Primary language for backend development, automation, and parsing. Telegram bots, APIs, scripts of any complexity.',
+    features: ['Django / FastAPI', 'Telegram Bots', 'Parsing', 'Automation']
   },
   { 
     name: 'React',
     category: 'Frontend',
-    desc: 'Современные веб-интерфейсы и SPA приложения. Быстрые, отзывчивые и красивые сайты.',
+    desc: 'Modern web interfaces and SPA applications. Fast, responsive, and beautiful websites.',
     features: ['TypeScript', 'Next.js', 'Tailwind', 'Animations']
   },
   { 
     name: 'Node.js',
     category: 'Backend',
-    desc: 'Серверная разработка на JavaScript. Real-time приложения, API, микросервисы.',
+    desc: 'Server-side JavaScript development. Real-time apps, APIs, microservices.',
     features: ['Express', 'WebSockets', 'REST API', 'GraphQL']
   },
   { 
     name: 'Swift',
     category: 'iOS',
-    desc: 'Нативные iOS приложения для iPhone и iPad. Публикация в App Store.',
+    desc: 'Native iOS apps for iPhone and iPad. Publishing to the App Store.',
     features: ['SwiftUI', 'UIKit', 'Core Data', 'Push']
   },
   { 
     name: 'Kotlin',
     category: 'Android',
-    desc: 'Нативные Android приложения. Современный код, публикация в Google Play.',
+    desc: 'Native Android apps. Modern code, publishing to Google Play.',
     features: ['Compose', 'Room', 'Retrofit', 'Firebase']
   },
   { 
     name: 'Docker',
     category: 'DevOps',
-    desc: 'Контейнеризация и деплой приложений. Настройка серверов и CI/CD пайплайнов.',
+    desc: 'App containerization and deployment. Server setup and CI/CD pipelines.',
     features: ['Compose', 'Nginx', 'CI/CD', 'Linux']
   },
 ];
@@ -150,7 +150,7 @@ const MobileCarousel: React.FC<{ technologies: typeof technologies }> = ({ techn
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </motion.div>
-        <span className="text-[9px] font-mono tracking-widest">СВАЙП</span>
+        <span className="text-[9px] font-mono tracking-widest">SWIPE</span>
       </div>
     </div>
   );
@@ -220,10 +220,10 @@ const DavidGoliath: React.FC = () => {
       {/* Header */}
       <div className="flex justify-between items-center px-6 md:px-12 pb-8">
         <span className="text-neutral-600 text-xs tracking-[0.3em] font-mono">[ 04 / 09 ]</span>
-        <span className="text-neutral-600 text-xs tracking-[0.3em] font-mono">ТЕХНОЛОГИИ</span>
+        <span className="text-neutral-600 text-xs tracking-[0.3em] font-mono">TECHNOLOGIES</span>
       </div>
 
-      {/* Бегущая строка */}
+      {/* Marquee */}
       <div className="py-4 md:py-8 overflow-hidden border-y border-white/5 mb-8 md:mb-16">
         <motion.div 
           className="flex whitespace-nowrap"

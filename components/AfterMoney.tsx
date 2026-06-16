@@ -1,13 +1,13 @@
-import React, { useRef } from 'react';
+﻿import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const stats = [
-  { value: '10K+', label: 'Отзывов' },
-  { value: '24/7', label: 'На связи' },
-  { value: '100%', label: 'Гарантия' },
-  { value: '4+', label: 'Года опыта' },
-  { value: '200+', label: 'Проектов' },
-  { value: '100%', label: 'Качество' },
+  { value: '10K+', label: 'Reviews' },
+  { value: '24/7', label: 'Available' },
+  { value: '100%', label: 'Guarantee' },
+  { value: '4+', label: 'Years exp.' },
+  { value: '200+', label: 'Projects' },
+  { value: '100%', label: 'Quality' },
 ];
 
 const AfterMoney: React.FC = () => {
@@ -52,7 +52,7 @@ const AfterMoney: React.FC = () => {
       {/* Header */}
       <div className="flex justify-between items-center px-6 md:px-12 pb-6 md:pb-12">
         <span className="text-neutral-600 text-[10px] md:text-xs tracking-[0.3em] font-mono">[ 05 / 09 ]</span>
-        <span className="text-neutral-600 text-[10px] md:text-xs tracking-[0.3em] font-mono">ПРЕИМУЩЕСТВА</span>
+        <span className="text-neutral-600 text-[10px] md:text-xs tracking-[0.3em] font-mono">ADVANTAGES</span>
       </div>
 
       {/* Background */}
@@ -80,7 +80,7 @@ const AfterMoney: React.FC = () => {
           <div className="overflow-hidden mb-4 md:mb-6">
             <motion.div style={{ y: y1, rotate: rotate1 }}>
               <span className="block text-[11vw] sm:text-[14vw] md:text-[14vw] lg:text-[12vw] font-black tracking-tighter text-[#FF3B30] leading-[0.85]">
-                Быстро.
+                Fast.
               </span>
             </motion.div>
           </div>
@@ -88,7 +88,7 @@ const AfterMoney: React.FC = () => {
           <div className="overflow-hidden mb-6 md:mb-10">
             <motion.div style={{ y: y2, rotate: rotate2 }}>
               <span className="block text-[9vw] sm:text-[12vw] md:text-[14vw] lg:text-[12vw] font-black tracking-tighter text-white leading-[0.85]">
-                Качественно.
+                Quality.
               </span>
             </motion.div>
           </div>
@@ -96,7 +96,7 @@ const AfterMoney: React.FC = () => {
           <div className="overflow-hidden">
             <motion.div style={{ y: y3, rotate: rotate3 }}>
               <span className="block text-[11vw] sm:text-[14vw] md:text-[14vw] lg:text-[12vw] font-black tracking-tighter text-neutral-700 leading-[0.85]">
-                Надёжно.
+                Reliable.
               </span>
             </motion.div>
           </div>
@@ -181,8 +181,8 @@ const AfterMoney: React.FC = () => {
         className="relative z-10 px-6 md:px-12 mt-16 md:mt-20"
       >
         <p className="text-center text-neutral-500 max-w-3xl mx-auto text-sm md:text-base lg:text-lg leading-relaxed">
-          Репутация — главный актив. Каждый проект делаем так, будто это наш собственный. 
-          <span className="text-neutral-400"> Чистый код, современные технологии, честные сроки.</span>
+          Reputation is our main asset. We treat every project as if it were our own. 
+          <span className="text-neutral-400"> Clean code, modern technologies, honest deadlines.</span>
         </p>
       </motion.div>
     </section>

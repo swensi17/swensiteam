@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface IntroProps {
@@ -74,8 +74,8 @@ const Intro: React.FC<IntroProps> = ({ onComplete }) => {
               transition={{ duration: 0.8 }}
               className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-white px-4"
             >
-              Разрабатываем как стартап<br/>
-              <span className="text-neutral-500">даже если вы не стартап.</span>
+              We build like a startup<br/>
+              <span className="text-neutral-500">even if you are not one.</span>
             </motion.h1>
 
             {/* Loading bar */}

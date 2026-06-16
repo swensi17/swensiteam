@@ -1,12 +1,12 @@
-import React, { useRef } from 'react';
+﻿import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const guarantees = [
-  { text: 'Сдача проектов в срок' },
-  { text: 'Правки в рамках ТЗ бесплатно' },
-  { text: 'Прозрачное ценообразование' },
-  { text: 'Поддержка после сдачи' },
-  { text: '10 000+ положительных отзывов' },
+  { text: 'On-time project delivery' },
+  { text: 'Free revisions within scope' },
+  { text: 'Transparent pricing' },
+  { text: 'Post-delivery support' },
+  { text: '10,000+ positive reviews' },
 ];
 
 const PoolRules: React.FC = () => {
@@ -40,7 +40,7 @@ const PoolRules: React.FC = () => {
       {/* Header */}
       <div className="flex justify-between items-center px-6 md:px-12 pb-8 md:pb-16">
         <span className="text-neutral-600 text-xs tracking-[0.3em] font-mono">[ 06 / 09 ]</span>
-        <span className="text-neutral-600 text-xs tracking-[0.3em] font-mono">ГАРАНТИИ</span>
+        <span className="text-neutral-600 text-xs tracking-[0.3em] font-mono">GUARANTEES</span>
       </div>
 
       {/* Title section */}
@@ -53,10 +53,10 @@ const PoolRules: React.FC = () => {
           className="text-center md:text-left"
         >
           <span className="text-[#FF3B30] text-xs font-mono tracking-[0.3em] block mb-4 md:mb-6">
-            [ ПОЧЕМУ МЫ ]
+            [ WHY US ]
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.9]">
-            Гарантии <span className="text-neutral-700">качества</span>
+            GUARANTEES <span className="text-neutral-700">Guarantees</span>
           </h2>
         </motion.div>
       </div>
@@ -168,8 +168,8 @@ const PoolRules: React.FC = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl text-white font-light leading-tight tracking-tight mb-8 md:mb-12"
               >
-                Качество строится годами, а теряется за секунду. 
-                <span className="text-neutral-500"> Поэтому каждый проект для нашей команды — как первый.</span>
+                Quality takes years to build and seconds to lose. 
+                <span className="text-neutral-500"> That''s why every project for our team is like the first.</span>
               </motion.p>
               
               <motion.footer
