@@ -180,7 +180,7 @@ const PoolRules: React.FC = () => {
                 className="flex items-center gap-4"
               >
                 <div className="w-12 h-[1px] bg-[#FF3B30]" />
-                <span className="text-[#FF3B30] text-sm font-mono tracking-[0.2em]">SWENSI</span>
+                <span className="text-[#FF3B30] text-sm font-mono tracking-[0.2em]">aileader</span>
               </motion.footer>
             </blockquote>
           </motion.div>

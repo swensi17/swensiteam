@@ -38,7 +38,7 @@ git remote add origin https://YOUR_TOKEN@github.com/USERNAME/REPO.git
 
 Пример:
 ```bash
-git remote add origin https://ghp_xxxxxxxxxxxxx@github.com/swensi17/swensiteam.git
+git remote add origin https://ghp_xxxxxxxxxxxxx@github.com/aileader17/aileaderteam.git
 ```
 
 ### 4️⃣ Настройка base path в vite.config.ts
@@ -55,9 +55,9 @@ export default defineConfig(({ mode }) => {
 });
 ```
 
-Пример для репозитория `swensiteam`:
+Пример для репозитория `aileaderteam`:
 ```typescript
-base: '/swensiteam/',
+base: '/aileaderteam/',
 ```
 
 ### 5️⃣ Сборка проекта
@@ -155,7 +155,7 @@ npm run deploy
 <img src="/svg/logo.svg" />
 
 // ✅ Правильно
-<img src="/swensiteam/svg/logo.svg" />
+<img src="/aileaderteam/svg/logo.svg" />
 ```
 
 ### Структура проекта

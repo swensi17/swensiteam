@@ -1,4 +1,4 @@
-п»їimport React, { useRef } from 'react';
+import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Footer: React.FC = () => {
@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
     offset: ["start end", "end end"]
   });
 
-  // Р›РѕРіРѕ РїРѕСЏРІР»СЏРµС‚СЃСЏ С‚РѕР»СЊРєРѕ РєРѕРіРґР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РїРѕС‡С‚Рё РґРѕРєСЂСѓС‚РёР» РґРѕ РєРѕРЅС†Р°
+  // Лого появляется только когда пользователь почти докрутил до конца
   const logoY = useTransform(scrollYProgress, [0.7, 1], [200, 0]);
   const logoOpacity = useTransform(scrollYProgress, [0.7, 1], [0, 1]);
 
@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
         
         {/* Top Left: Logo / Input / Socials */}
         <div className="lg:col-span-5 flex flex-col gap-6">
-          <div className="font-semibold text-lg tracking-tight">Swensi.Dev в„ў</div>
+          <div className="font-semibold text-lg tracking-tight">aileader.Dev ™</div>
           
           <div className="flex w-full max-w-sm mt-4">
             <input 
@@ -30,20 +30,20 @@ const Footer: React.FC = () => {
               className="bg-transparent border border-white/20 text-white placeholder:text-neutral-600 px-4 py-3 rounded-l-md focus:outline-none focus:border-white/40 w-full text-sm font-light transition-colors"
             />
             <a 
-              href="https://t.me/swensi17" 
+              href="https://t.me/aileader17" 
               target="_blank" 
               rel="noreferrer"
               className="bg-[#FF3B30] text-white px-6 py-3 rounded-r-md font-medium text-sm hover:bg-white hover:text-black transition-colors whitespace-nowrap flex items-center justify-center"
             >
-              РќР°РїРёСЃР°С‚СЊ
+              Написать
             </a>
           </div>
 
           <div className="flex gap-4 mt-6">
-             <a href="https://t.me/swensi17" target="_blank" rel="noreferrer" className="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center hover:bg-[#FF3B30] hover:border-[#FF3B30] hover:text-white transition-all text-neutral-400">
+             <a href="https://t.me/aileader17" target="_blank" rel="noreferrer" className="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center hover:bg-[#FF3B30] hover:border-[#FF3B30] hover:text-white transition-all text-neutral-400">
                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
              </a>
-             <a href="https://t.me/swensiorder" target="_blank" rel="noreferrer" className="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all text-neutral-400">
+             <a href="https://t.me/aileaderorder" target="_blank" rel="noreferrer" className="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all text-neutral-400">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
              </a>
              <a href="https://t.me/amirjanjik" target="_blank" rel="noreferrer" className="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all text-neutral-400">
@@ -55,23 +55,23 @@ const Footer: React.FC = () => {
         {/* Top Right: Columns */}
         <div className="lg:col-span-7 grid grid-cols-2 gap-8">
           <div className="flex flex-col gap-5">
-            <h4 className="font-semibold text-white/90 mb-2">РЈСЃР»СѓРіРё</h4>
-            <a href="#services" className="text-neutral-400 hover:text-[#FF3B30] transition-colors text-sm">Telegram Р±РѕС‚С‹</a>
-            <a href="#services" className="text-neutral-400 hover:text-[#FF3B30] transition-colors text-sm">Р’РµР±-РїСЂРёР»РѕР¶РµРЅРёСЏ</a>
-            <a href="#services" className="text-neutral-400 hover:text-[#FF3B30] transition-colors text-sm">РџР°СЂСЃРµСЂС‹ & API</a>
-            <a href="#services" className="text-neutral-400 hover:text-[#FF3B30] transition-colors text-sm">РњРѕР±РёР»СЊРЅС‹Рµ РїСЂРёР»РѕР¶РµРЅРёСЏ</a>
+            <h4 className="font-semibold text-white/90 mb-2">Услуги</h4>
+            <a href="#services" className="text-neutral-400 hover:text-[#FF3B30] transition-colors text-sm">Telegram боты</a>
+            <a href="#services" className="text-neutral-400 hover:text-[#FF3B30] transition-colors text-sm">Веб-приложения</a>
+            <a href="#services" className="text-neutral-400 hover:text-[#FF3B30] transition-colors text-sm">Парсеры & API</a>
+            <a href="#services" className="text-neutral-400 hover:text-[#FF3B30] transition-colors text-sm">Мобильные приложения</a>
           </div>
           <div className="flex flex-col gap-5">
-            <h4 className="font-semibold text-white/90 mb-2">РЎСЃС‹Р»РєРё</h4>
-            <a href="https://t.me/swensi17" target="_blank" rel="noreferrer" className="text-neutral-400 hover:text-white transition-colors text-sm">РќР°РїРёСЃР°С‚СЊ РјРЅРµ</a>
-            <a href="https://t.me/amirjanjik" target="_blank" rel="noreferrer" className="text-neutral-400 hover:text-white transition-colors text-sm">РћС‚Р·С‹РІС‹ (10K+)</a>
-            <a href="https://t.me/swensiorder" target="_blank" rel="noreferrer" className="text-neutral-400 hover:text-white transition-colors text-sm">РђСЂС…РёРІ Р·Р°РєР°Р·РѕРІ</a>
+            <h4 className="font-semibold text-white/90 mb-2">Ссылки</h4>
+            <a href="https://t.me/aileader17" target="_blank" rel="noreferrer" className="text-neutral-400 hover:text-white transition-colors text-sm">Написать мне</a>
+            <a href="https://t.me/amirjanjik" target="_blank" rel="noreferrer" className="text-neutral-400 hover:text-white transition-colors text-sm">Отзывы (10K+)</a>
+            <a href="https://t.me/aileaderorder" target="_blank" rel="noreferrer" className="text-neutral-400 hover:text-white transition-colors text-sm">Архив заказов</a>
           </div>
           <div className="hidden lg:flex flex-col gap-5">
-            <h4 className="font-semibold text-white/90 mb-2">РљРѕРјРїР°РЅРёСЏ</h4>
-            <a href="#about" className="text-neutral-400 hover:text-white transition-colors text-sm">РћР±Рѕ РјРЅРµ</a>
-            <a href="#process" className="text-neutral-400 hover:text-white transition-colors text-sm">РџСЂРѕС†РµСЃСЃ</a>
-            <a href="#contacts" className="text-neutral-400 hover:text-white transition-colors text-sm">РљРѕРЅС‚Р°РєС‚С‹</a>
+            <h4 className="font-semibold text-white/90 mb-2">Компания</h4>
+            <a href="#about" className="text-neutral-400 hover:text-white transition-colors text-sm">Обо мне</a>
+            <a href="#process" className="text-neutral-400 hover:text-white transition-colors text-sm">Процесс</a>
+            <a href="#contacts" className="text-neutral-400 hover:text-white transition-colors text-sm">Контакты</a>
           </div>
         </div>
 
@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
           style={{ y: logoY, opacity: logoOpacity }}
           className="text-[25vw] md:text-[26vw] lg:text-[27vw] font-black tracking-tight leading-[0.7] text-white lowercase select-none text-center w-full m-0 p-0"
         >
-          swensi
+          aileader
         </motion.h1>
       </div>
     </footer>

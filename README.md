@@ -1,4 +1,4 @@
-# 🚀 SWENSI DEVELOPER - Портфолио сайт
+# 🚀 aileader DEVELOPER - Портфолио сайт
 
 Современный одностраничный сайт-портфолио для веб-студии, созданный с использованием React, TypeScript и Vite.
 
@@ -25,10 +25,10 @@
 
 ```bash
 # Клонируйте репозиторий
-git clone https://github.com/swensi17/swensiteam.git
+git clone https://github.com/aileader17/aileaderteam.git
 
 # Перейдите в папку проекта
-cd swensiteam
+cd aileaderteam
 
 # Установите зависимости
 npm install
@@ -64,7 +64,7 @@ npm run deploy
 ## 📁 Структура проекта
 
 ```
-swensiteam/
+aileaderteam/
 ├── components/              # React компоненты
 │   ├── Header.tsx          # Шапка сайта
 │   ├── Hero.tsx            # Главный экран
@@ -117,7 +117,7 @@ Bento Grid с информацией о безопасности и защите
 
 ### Vite Config
 Основные настройки в `vite.config.ts`:
-- `base: '/swensiteam/'` - базовый путь для GitHub Pages
+- `base: '/aileaderteam/'` - базовый путь для GitHub Pages
 - `server.port: 3000` - порт dev-сервера
 - Алиасы путей
 
@@ -127,7 +127,7 @@ Bento Grid с информацией о безопасности и защите
 ## 🌐 Деплой
 
 Сайт автоматически деплоится на GitHub Pages:
-- **URL:** https://swensi17.github.io/swensiteam/
+- **URL:** https://aileader17.github.io/aileaderteam/
 - **Ветка:** `gh-pages`
 
 ## 📝 Скрипты
@@ -149,12 +149,12 @@ Bento Grid с информацией о безопасности и защите
 
 ## 📄 Лицензия
 
-Этот проект создан для SWENSI DEVELOPER.
+Этот проект создан для aileader DEVELOPER.
 
 ## 👨‍💻 Автор
 
-**SWENSI DEVELOPER**
-- GitHub: [@swensi17](https://github.com/swensi17)
+**aileader DEVELOPER**
+- GitHub: [@aileader17](https://github.com/aileader17)
 
 ---
 

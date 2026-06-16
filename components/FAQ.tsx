@@ -5,7 +5,7 @@ const faqData = [
   {
     num: '01',
     q: 'Сколько стоит?',
-    a: 'Цена зависит от сложности проекта. Напиши в Telegram @swensi17 — обсудим детали и назову точную стоимость.'
+    a: 'Цена зависит от сложности проекта. Напиши в Telegram @aileader17 — обсудим детали и назову точную стоимость.'
   },
   {
     num: '02',
@@ -20,7 +20,7 @@ const faqData = [
   {
     num: '04',
     q: 'Где посмотреть отзывы?',
-    a: 'Более 10 000 отзывов в канале @amirjanjik. Архив заказов с информацией о клиентах: @swensiorder'
+    a: 'Более 10 000 отзывов в канале @amirjanjik. Архив заказов с информацией о клиентах: @aileaderorder'
   }
 ];
 
@@ -144,7 +144,7 @@ const FAQ: React.FC = () => {
               </p>
               
               <motion.a
-                href="https://t.me/swensi17"
+                href="https://t.me/aileader17"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}

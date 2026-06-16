@@ -95,7 +95,7 @@ const Hero: React.FC = () => {
           className="absolute z-0 w-full flex justify-center pointer-events-none select-none top-[40%] md:top-[28%]"
         >
           <div className="flex flex-nowrap gap-0 relative">
-            {"SWENSI".split("").map((char, index) => (
+            {"aileader".split("").map((char, index) => (
               <div key={index} className="relative">
                 <span className="text-[20vw] md:text-[18vw] font-mono font-bold uppercase tracking-tighter leading-none whitespace-nowrap text-transparent block"
                   style={{
@@ -135,7 +135,7 @@ const Hero: React.FC = () => {
             className="z-30 relative"
           >
             <a
-              href="https://t.me/swensi17"
+              href="https://t.me/aileader17"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-center gap-3 px-8 md:px-10 py-4 md:py-5 bg-[#FF3B30] text-white font-mono font-bold text-[13px] sm:text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 min-w-[200px] md:min-w-[240px] relative overflow-hidden"

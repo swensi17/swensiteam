@@ -62,7 +62,7 @@ const Intro: React.FC<IntroProps> = ({ onComplete }) => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="mb-4"
             >
-              <span className="text-[#FF3B30] text-xs font-mono tracking-[0.3em]">SWENSI DEVELOPER</span>
+              <span className="text-[#FF3B30] text-xs font-mono tracking-[0.3em]">aileader DEVELOPER</span>
             </motion.div>
 
             <motion.h1
@@ -115,7 +115,7 @@ const Intro: React.FC<IntroProps> = ({ onComplete }) => {
             animate={{ opacity: phase >= 1 ? 0.5 : 0 }}
             className="absolute bottom-8 left-8 text-[10px] font-mono tracking-widest text-neutral-600"
           >
-            @SWENSI17
+            @aileader17
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }}
