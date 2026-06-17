@@ -1,5 +1,6 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useLang } from '../lib/i18n';
 
 const BASE_URL = import.meta.env.BASE_URL || '/';
 
@@ -26,144 +27,81 @@ const integrationsList = [
 ];
 
 const Hero: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  });
-
-  // Parallax effects
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, 150]);
-  const textY = useTransform(scrollYProgress, [0, 1], [0, -80]);
-
-  // Double the list for seamless looping (standard practice for infinite marquee)
-  const fullRow = [...integrationsList, ...integrationsList];
+  const { t } = useLang();
+  const fullRow = [...integrationsList, ...integrationsList, ...integrationsList];
 
   return (
-    <section
-      id="home"
-      ref={containerRef}
-      className="relative min-h-screen bg-[#050505] text-white overflow-hidden flex flex-col font-sans border-b border-white/5"
-    >
+    <section id="home" className="relative h-screen text-white overflow-hidden flex flex-col" style={{ backgroundColor: '#050505' }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap');
-        .font-signature { 
-          font-family: 'Mrs Saint Delafield', cursive; 
-        }
         .mask-edges {
           -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
           mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
         }
       `}</style>
 
-      {/* Background Image with Bars Mask */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none">
-        <div
-          className="absolute inset-0 w-full h-full bg-cover bg-center mix-blend-screen opacity-60"
-          style={{
-            backgroundImage: `url(${BASE_URL}image-optimized.webp)`,
-            WebkitMaskImage: `repeating-linear-gradient(
-              to right,
-              transparent 0px,
-              transparent 8px,
-              black 8px,
-              black calc((100% - 88px) / 10 + 8px)
-            )`,
-            maskImage: `repeating-linear-gradient(
-              to right,
-              transparent 0px,
-              transparent 8px,
-              black 8px,
-              black calc((100% - 88px) / 10 + 8px)
-            )`
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-[#050505]/40" />
+      {/* Background Video */}
+      <div className="absolute inset-0 pointer-events-none">
+        <video autoPlay muted loop playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-50">
+          <source src={`${BASE_URL}hero-bg.mp4`} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-[#050505]/55" />
       </div>
 
-      {/* Grid Lines */}
-      <div className="absolute top-[100px] left-0 w-full h-[1px] bg-white/10 z-10" />
-      <div className="absolute top-0 left-[20px] md:left-[70px] w-[1px] h-full bg-white/10 z-10" />
-
-      {/* Main Center Content */}
-      <div className="flex-1 flex flex-col justify-center items-center relative w-full h-full pt-16 pb-20">
-
-        {/* Massive Background Text */}
+      {/* Content - vertically centered */}
+      <div className="flex-1 flex flex-col items-center justify-center relative z-10 px-6">
+        {/* AILEADER text */}
         <motion.div
-          style={{ y: textY }}
-          className="absolute z-0 w-full flex justify-center pointer-events-none select-none top-[40%] md:top-[28%]"
-        >
-          <div className="flex flex-nowrap gap-0 relative">
-            {"aileader".split("").map((char, index) => (
-              <div key={index} className="relative">
-                <span className="text-[20vw] md:text-[18vw] font-mono font-bold uppercase tracking-tighter leading-none whitespace-nowrap text-transparent block"
-                  style={{
-                    WebkitTextStroke: '1px rgba(255, 255, 255, 0.3)',
-                    textShadow: '0 0 15px rgba(255, 255, 255, 0.1)',
-                  }}>
-                  {char}
-                </span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Central Content Stack */}
-        <motion.div
-          style={{ y: imageY }}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
-          className="relative z-10 flex flex-col items-center justify-center mt-[5vh] sm:mt-[10vh] md:mt-24 lg:mt-32"
+          transition={{ duration: 0.8 }}
+          className="mb-6 md:mb-8"
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotate: -8 }}
-            animate={{ opacity: 1, scale: 1, rotate: -8 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            className="z-20 whitespace-nowrap pointer-events-none mb-6 md:mb-10"
-          >
-            <span className="font-signature text-[120px] sm:text-[160px] md:text-[220px] text-[#FF3B30] leading-none drop-shadow-[0 10px_30px_rgba(255,59,48,0.5)] block">
-              team
-            </span>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
-            className="z-30 relative"
-          >
-            <a
-              href="https://t.me/aileader17"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center justify-center gap-3 px-8 md:px-10 py-4 md:py-5 bg-[#FF3B30] text-white font-mono font-bold text-[13px] sm:text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 min-w-[200px] md:min-w-[240px] relative overflow-hidden"
-            >
-              <span className="relative z-10 transition-transform duration-300 group-hover:-translate-x-1">DISCUSS PROJECT</span>
-              <svg className="w-4 h-4 transition-all duration-300 transform group-hover:translate-x-1 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </a>
-          </motion.div>
+          <h1 className="text-[14vw] sm:text-[12vw] md:text-[10vw] lg:text-[8vw] font-bold uppercase tracking-tighter leading-none text-center"
+            style={{ fontFamily: 'Helony, sans-serif' }}>
+            <span className="text-[#0ae448]">AI</span><span className="text-white">LEADER</span>
+          </h1>
         </motion.div>
+
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-white/60 text-center text-[14px] sm:text-[16px] md:text-[18px] max-w-[500px] mb-8"
+        >
+          {t('hero.subtitle')}
+        </motion.p>
+
+        {/* CTA Button */}
+        <motion.a
+          href="https://t.me/swensi17"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="inline-flex items-center gap-3 px-7 py-3 rounded-[100px] border border-[#fffce1] text-[#fffce1] text-[14px] sm:text-[16px] tracking-[-0.01em] hover:bg-[#fffce1] hover:text-[#0e100f] transition-all duration-300"
+        >
+          {t('hero.btn')}
+          <span className="w-6 h-6 rounded-full border border-current flex items-center justify-center">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg>
+          </span>
+        </motion.a>
       </div>
 
       {/* Infinite Scrolling Integrations Bar */}
-      <div className="absolute bottom-0 left-0 w-full bg-[#050505]/80 backdrop-blur-md border-t border-white/5 z-10 py-4 md:py-6 overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-full bg-black/30 backdrop-blur-sm border-t border-white/5 z-10 py-3 md:py-5 overflow-hidden">
         <div className="flex w-full whitespace-nowrap items-center mask-edges">
           <motion.div
             className="flex items-center w-fit"
-            animate={{ x: ["0%", "-50%"] }}
+            animate={{ x: ["0%", "-33.333%"] }}
             transition={{ repeat: Infinity, ease: "linear", duration: 35 }}
           >
             {fullRow.map((item, i) => (
-              <div key={i} className="flex items-center gap-2 md:gap-3 px-4 md:px-8 shrink-0 opacity-80 hover:opacity-100 transition-opacity duration-300">
-                {item.icon && (
-                  <img src={`${BASE_URL}svg/${item.icon}`} alt={item.name} className="w-4 h-4 md:w-6 md:h-6 object-contain" />
-                )}
-                <span className="text-[9px] md:text-xs font-mono font-bold tracking-[0.15em] md:tracking-[0.2em] text-white uppercase mt-0.5">
+              <div key={i} className="flex items-center gap-2 md:gap-3 px-4 md:px-8 shrink-0 opacity-80">
+                <img src={`${BASE_URL}svg/${item.icon}`} alt={item.name} className="w-4 h-4 md:w-5 md:h-5 object-contain" />
+                <span className="text-[9px] md:text-xs font-mono font-bold tracking-[0.15em] text-white uppercase">
                   {item.name}
                 </span>
               </div>

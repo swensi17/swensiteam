@@ -1,354 +1,196 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  ChevronDown, 
-  ArrowUpRight, 
-  Compass, 
-  Briefcase, 
-  Code2, 
-  ShieldCheck, 
-  GitMerge, 
-  HelpCircle, 
-  Mail 
-} from 'lucide-react';
+import { useLang } from '../lib/i18n';
+import { useTheme } from '../lib/theme';
 
 const navItems = [
-  { 
-    label: 'Home', href: '#home', id: 'home', icon: Compass,
-    menu: {
-      title: "Starting Point",
-      desc: "Learn about our development philosophy and key principles for creating premium digital products.",
-      subItems: ["Overview", "Our Technologies", "Studio Profile", "Mission & Vision"]
-    }
-  },
-  { 
-    label: 'Services', href: '#services', id: 'services', icon: Briefcase,
-    menu: {
-      title: "Full-cycle Development",
-      desc: "We deliver functionality: from clean architecture and design to writing scalable code. We cover all modern business needs.",
-      subItems: ["Frontend Solutions", "Backend Systems", "Telegram Bots", "UI/UX Design"]
-    }
-  },
-  { 
-    label: 'Stack', href: '#stack', id: 'stack', icon: Code2,
-    menu: {
-      title: "Technology Path",
-      desc: "We use the most current frameworks and programming languages to create products that are ahead of their time.",
-      subItems: ["Frontend Stack", "Backend Stack", "Database systems", "Cloud & Infra"]
-    }
-  },
-  { 
-    label: 'Security', href: '#security', id: 'security', icon: ShieldCheck,
-    menu: {
-      title: "Information Security",
-      desc: "We take full responsibility for your data safety. Encryption certificates and infrastructure stability are our priority.",
-      subItems: ["Vulnerability Audit", "DDoS Protection", "Backups", "Data Encryption"]
-    }
-  },
-  { 
-    label: 'Process', href: '#process', id: 'process', icon: GitMerge,
-    menu: {
-      title: "Transparent Stages",
-      desc: "High level of control at every step. You always know exactly what stage your product is at, thanks to our methodology.",
-      subItems: ["Briefing & Analysis", "Design", "Development & Tests", "Release & Support"]
-    }
-  },
-  { 
-    label: 'FAQ', href: '#faq', id: 'faq', icon: HelpCircle,
-    menu: {
-      title: "Knowledge Base",
-      desc: "Our answers to the most popular questions: from development timelines to legal guarantees and support terms.",
-      subItems: ["Guarantees & Contract", "Development Timeline", "Payment & Support", "Technical Specification"]
-    }
-  },
-  { 
-    label: 'Contacts', href: '#contacts', id: 'contacts', icon: Mail,
-    menu: {
-      title: "Direct Contact",
-      desc: "Have questions or ready to start a project? Write to us now, we are always available and open to dialogue.",
-      subItems: ["Message on Telegram", "Submit Request", "Our Channel", "Our Office"]
-    }
-  }
+  { key: 'nav.home', href: '#home', id: 'home' },
+  { key: 'nav.services', href: '#services', id: 'services' },
+  { key: 'nav.stack', href: '#stack', id: 'stack' },
+  { key: 'nav.security', href: '#security', id: 'security' },
+  { key: 'nav.process', href: '#process', id: 'process' },
+  { key: 'nav.faq', href: '#faq', id: 'faq' },
+  { key: 'nav.contacts', href: '#contacts', id: 'contacts' },
 ];
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
   const [activeSection, setActiveSection] = useState('home');
-  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeMenuObj, setActiveMenuObj] = useState<any>(null);
+  const { lang, setLang, t } = useLang();
+  const [langOpen, setLangOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
+    let lastScroll = 0;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const current = window.scrollY;
+      setVisible(current < 50 || current < lastScroll);
+      setScrolled(current > 50);
+      lastScroll = current;
       
-      const sections = ['home', 'services', 'stack', 'security', 'process', 'faq', 'contacts'];
-      let current = 'home';
-      
+      const sections = navItems.map(n => n.id);
+      let cur = 'home';
       for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 300) {
-            current = section;
-          }
-        }
+        const el = document.getElementById(section);
+        if (el && el.getBoundingClientRect().top <= 300) cur = section;
       }
-      setActiveSection(current);
+      setActiveSection(cur);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Lock scroll when mobile menu is open
   useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
+    document.body.style.overflow = mobileMenuOpen ? 'hidden' : 'unset';
+    return () => { document.body.style.overflow = 'unset'; };
   }, [mobileMenuOpen]);
 
-  const handleMouseEnter = (id: string) => {
-    setHoveredItem(id);
-    const item = navItems.find(n => n.id === id);
-    if (item?.menu) setActiveMenuObj(item);
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredItem(null);
-  };
-
-  const scrollToSection = (e: React.MouseEvent, href: string) => {
+  const scrollTo = (e: React.MouseEvent, href: string) => {
     e.preventDefault();
-    const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
-    if (element) {
-      window.scrollTo({
-        top: element.offsetTop - 80,
-        behavior: 'smooth'
-      });
-    }
+    const el = document.getElementById(href.replace('#', ''));
+    if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
     setMobileMenuOpen(false);
-    setHoveredItem(null);
   };
 
   return (
     <>
-      {/* Desktop Navigation */}
-      <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 hidden lg:block ${
-          scrolled || (hoveredItem && activeMenuObj?.menu)
-            ? 'bg-[#050505] shadow-2xl' 
-            : 'bg-transparent'
-        }`}
-        onMouseLeave={handleMouseLeave}
-      >
-        <div className="flex flex-col items-center">
-          <div className="pt-4 relative">
-            <nav className="flex items-center bg-white/5 rounded-full px-1.5 py-1.5 backdrop-blur-md border border-white/10 shadow-xl relative z-10">
-              {navItems.map((item) => {
-                const isActive = activeSection === item.id;
-                const isHovered = hoveredItem === item.id;
-                const Icon = item.icon;
-                
-                return (
-                  <a 
-                    key={item.id}
-                    href={item.href}
-                    className="relative px-4 py-1.5 cursor-pointer flex items-center gap-2"
-                    onMouseEnter={() => handleMouseEnter(item.id)}
-                    onClick={(e) => scrollToSection(e, item.href)}
-                  >
-                    <AnimatePresence>
-                      {(isActive || isHovered) && (
-                        <motion.div
-                          layoutId="activeBubble"
-                          className={`absolute inset-0 rounded-full z-0 ${isActive ? 'bg-[#FF3B30]' : 'bg-white/10'}`}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-                        />
-                      )}
-                    </AnimatePresence>
-
-                    {Icon && (
-                      <Icon className={`w-3.5 h-3.5 relative z-10 transition-colors duration-300 ${(isActive || isHovered) ? 'text-white' : 'text-neutral-500'}`} />
-                    )}
-
-                    <span className={`relative z-10 text-[11px] font-bold tracking-[0.15em] uppercase transition-colors duration-300 ${
-                      isActive ? 'text-white' : 'text-neutral-400'
-                    }`}>
-                      {item.label}
-                    </span>
-
-                    {item.menu && (
-                      <ChevronDown 
-                        className={`w-3 h-3 relative z-10 transition-transform duration-300 ${(isActive || isHovered) ? 'text-white' : 'text-neutral-500'} ${isHovered ? 'rotate-180' : ''}`} 
-                      />
-                    )}
-                  </a>
-                );
-              })}
-            </nav>
-
-            <AnimatePresence>
-              {hoveredItem && activeMenuObj?.menu && (
-                <div className="absolute top-full left-0 w-full pt-0.5 pointer-events-none">
-                  <motion.div
-                    layout
-                    initial={{ opacity: 0, height: 0, y: -10 }}
-                    animate={{ opacity: 1, height: 'auto', y: 0 }}
-                    exit={{ opacity: 0, height: 0, y: -10 }}
-                    transition={{ 
-                      duration: 0.4, 
-                      ease: [0.23, 1, 0.32, 1],
-                      layout: { duration: 0.4, ease: "easeOut" }
-                    }}
-                    style={{ originY: 0 }}
-                    className="w-full overflow-hidden bg-[#0A0A0A] border-x border-b border-white/5 rounded-b-[28px] shadow-2xl pointer-events-auto"
-                    onMouseEnter={() => handleMouseEnter(hoveredItem)}
-                  >
-                    <div className="p-8 flex items-stretch gap-8">
-                      <div className="flex flex-col gap-4 min-w-[200px] pt-1">
-                        {activeMenuObj.menu.subItems.map((sub: string, idx: number) => (
-                          <a 
-                            key={idx} 
-                            href={activeMenuObj.href} 
-                            onClick={(e) => scrollToSection(e, activeMenuObj.href)}
-                            className="group flex items-center justify-between text-[14px] font-medium text-neutral-300 hover:text-white transition-colors"
-                          >
-                            <span className="relative inline-block overflow-hidden">
-                              <span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">
-                                {sub}
-                              </span>
-                              <span className="absolute left-0 top-full inline-block transition-transform duration-300 group-hover:-translate-y-full text-[#FF3B30]">
-                                {sub}
-                              </span>
-                            </span>
-                            <ArrowUpRight className="w-3.5 h-3.5 text-neutral-600 group-hover:text-[#FF3B30] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
-                          </a>
-                        ))}
-                      </div>
-
-                      <div className="flex-1 bg-white/[0.03] rounded-2xl p-6 border border-white/5 relative overflow-hidden group">
-                        <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#FF3B30]/20 rounded-full blur-3xl group-hover:bg-[#FF3B30]/30 transition-colors duration-500 pointer-events-none" />
-                        <h4 className="text-[#FF3B30] text-[9px] tracking-widest font-mono mb-3 uppercase">
-                          [ {activeMenuObj.menu.title} ]
-                        </h4>
-                        <p className="text-neutral-400 text-[13px] leading-relaxed font-light">
-                          {activeMenuObj.menu.desc}
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
+      {/* Desktop Nav */}
+      <header className={`fixed top-0 left-0 right-0 z-50 hidden lg:flex justify-center pt-4 transition-all duration-500 ${visible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'} ${scrolled ? 'backdrop-blur-md pt-3' : ''}`}>
+        <nav className="flex items-center gap-1 px-2 py-1.5 rounded-[100px] border border-[#42433d] bg-black/80 backdrop-blur-md">
+          {navItems.map((item) => (
+            <a
+              key={item.id}
+              href={item.href}
+              onClick={(e) => scrollTo(e, item.href)}
+              className={`relative px-4 py-1.5 rounded-[100px] text-[14px] tracking-[-0.01em] transition-all duration-300 ${
+                activeSection === item.id
+                  ? 'text-[#0e100f] font-semibold'
+                  : 'text-[#fffce1]/80 hover:text-[#fffce1]'
+              }`}
+            >
+              {activeSection === item.id && (
+                <motion.div
+                  layoutId="activeNav"
+                  className="absolute inset-0 rounded-[100px] bg-[#fffce1]"
+                  transition={{ type: 'spring', bounce: 0.2, duration: 0.5 }}
+                />
               )}
-            </AnimatePresence>
+              <span className="relative z-10">{t(item.key)}</span>
+            </a>
+          ))}
+          {/* Language dropdown */}
+          <div className="ml-2 relative">
+            <button onClick={() => setLangOpen(!langOpen)}
+              className="px-4 py-1.5 rounded-[100px] border border-[#fffce1] text-[#fffce1] text-[14px] tracking-[-0.01em] hover:bg-[#fffce1] hover:text-[#0e100f] transition-all">
+              {lang.toUpperCase()}
+            </button>
+            {langOpen && (
+              <div className="absolute top-full mt-2 right-0 bg-[#0e100f] border border-[#42433d] rounded-[8px] overflow-hidden z-50">
+                {(['en', 'ru', 'uz'] as const).map((l) => (
+                  <button key={l} onClick={() => { setLang(l); setLangOpen(false); }}
+                    className={`block w-full px-4 py-2 text-[13px] uppercase text-left transition-colors ${lang === l ? 'text-[#0ae448]' : 'text-[#fffce1] hover:bg-white/5'}`}>
+                    {l === 'en' ? 'English' : l === 'ru' ? 'Русский' : 'O\'zbek'}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
-        </div>
+          {/* Theme toggle */}
+          <button onClick={toggleTheme} className="ml-2 w-8 h-8 rounded-full border border-[#fffce1] flex items-center justify-center text-[#fffce1] hover:bg-[#fffce1] hover:text-[#0e100f] transition-all">
+            {theme === 'dark' ? (
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+            ) : (
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            )}
+          </button>
+          <div className="ml-2 w-[1px] h-5 bg-[#fffce1]/30" />
+          <a
+            href="https://t.me/swensi17"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-2 px-4 py-1.5 rounded-[100px] border border-[#fffce1] text-[#fffce1] text-[14px] tracking-[-0.01em] hover:bg-[#fffce1] hover:text-[#0e100f] transition-all duration-300"
+          >
+            {t('nav.cta')}
+          </a>
+        </nav>
       </header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Nav */}
+      <div className={`lg:hidden fixed top-3 left-3 right-3 z-50 flex items-center justify-between px-4 py-2.5 rounded-[100px] border backdrop-blur-md transition-all duration-500 ${mobileMenuOpen ? 'opacity-0 pointer-events-none' : visible ? 'translate-y-0 opacity-100' : '-translate-y-20 opacity-0'} ${theme === 'light' ? 'bg-white/90 border-gray-200' : 'bg-black/70 border-[#42433d]'}`}>
+        <a href="#home" onClick={(e) => scrollTo(e, '#home')} className="flex items-center gap-2">
+          <img src={`${import.meta.env.BASE_URL || '/'}avatar.png`} alt="logo" className={`w-7 h-7 rounded-full border ${theme === 'light' ? 'border-gray-200' : 'border-[#fffce1]/30'}`} />
+          <span className={`text-[14px] font-semibold ${theme === 'light' ? 'text-[#141415]' : 'text-[#fffce1]'}`}>aileader</span>
+        </a>
+        <div className="flex items-center gap-2">
+          <button onClick={toggleTheme} className={`w-7 h-7 rounded-full border flex items-center justify-center ${theme === 'light' ? 'border-gray-300 text-[#141415]' : 'border-[#fffce1] text-[#fffce1]'}`}>
+            {theme === 'dark' ? (
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+            ) : (
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            )}
+          </button>
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className={`flex flex-col gap-1.5 p-1 ${theme === 'light' ? 'text-[#141415]' : 'text-[#fffce1]'}`}>
+            <motion.span animate={{ rotate: mobileMenuOpen ? 45 : 0, y: mobileMenuOpen ? 5 : 0 }} className="w-5 h-[1.5px] bg-current block origin-center" />
+            <motion.span animate={{ opacity: mobileMenuOpen ? 0 : 1 }} className="w-5 h-[1.5px] bg-current block" />
+            <motion.span animate={{ rotate: mobileMenuOpen ? -45 : 0, y: mobileMenuOpen ? -5 : 0 }} className="w-5 h-[1.5px] bg-current block origin-center" />
+          </button>
+        </div>
+      </div>
+
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ clipPath: 'inset(0% 0% 100% 0%)', opacity: 0 }}
-            animate={{ clipPath: 'inset(0% 0% 0% 0%)', opacity: 1 }}
-            exit={{ clipPath: 'inset(0% 0% 100% 0%)', opacity: 0 }}
-            transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
-            className="fixed inset-0 z-40 bg-[#050505] backdrop-blur-3xl lg:hidden flex flex-col"
+            initial={{ clipPath: 'inset(0 0 100% 0)' }}
+            animate={{ clipPath: 'inset(0 0 0% 0)' }}
+            exit={{ clipPath: 'inset(0 0 100% 0)' }}
+            transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
+            className={`lg:hidden fixed inset-0 z-40 flex flex-col ${theme === 'light' ? 'bg-white' : 'bg-[#0e100f]'}`}
           >
-            <nav className="flex-1 overflow-y-auto pt-24 pb-6 px-6">
-              <div className="flex flex-col">
-                {navItems.map((item, i) => {
-                  const Icon = item.icon;
-                  return (
-                    <motion.a
-                      key={item.id}
-                      href={item.href}
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 20 }}
-                      transition={{ delay: 0.1 + i * 0.05, duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
-                      onClick={(e) => scrollToSection(e, item.href)}
-                      className={`group flex items-center justify-between py-3.5 border-b border-white/5 text-[20px] font-medium tracking-tight transition-colors duration-300 ${
-                        activeSection === item.id ? 'text-[#FF3B30]' : 'text-white'
-                      }`}
-                    >
-                      <span className="flex items-center gap-4">
-                        {Icon && (
-                          <Icon className={`w-6 h-6 transition-colors duration-300 ${activeSection === item.id ? 'text-[#FF3B30]' : 'text-neutral-500 group-hover:text-white'}`} />
-                        )}
-                        {item.label}
-                      </span>
-                      <ChevronDown 
-                        className={`w-5 h-5 -rotate-90 transition-colors duration-300 ${activeSection === item.id ? 'text-[#FF3B30]' : 'text-neutral-600 group-hover:text-white'}`} 
-                      />
-                    </motion.a>
-                  )
-                })}
-              </div>
-            </nav>
+            {/* Top bar: logo + close */}
+            <div className={`flex items-center justify-between px-6 py-5 border-b ${theme === 'light' ? 'border-gray-200' : 'border-[#42433d]'}`}>
+              <span className={`text-[16px] font-semibold ${theme === 'light' ? 'text-[#141415]' : 'text-[#fffce1]'}`}>aileader</span>
+              <button onClick={() => setMobileMenuOpen(false)} className={`text-[12px] tracking-[0.1em] uppercase flex items-center gap-2 ${theme === 'light' ? 'text-[#141415]' : 'text-[#fffce1]'}`}>
+                CLOSE
+                <span className="w-5 h-5 flex items-center justify-center">✕</span>
+              </button>
+            </div>
 
-            {/* Mobile Menu Footer - Removed to prevent duplication */}
+            {/* Big nav links */}
+            <div className="flex-1 flex flex-col px-6 gap-2 pt-4 overflow-y-auto">
+              {navItems.map((item) => (
+                <a
+                  key={item.id}
+                  href={item.href}
+                  onClick={(e) => scrollTo(e, item.href)}
+                  className={`group py-3 border-b ${theme === 'light' ? 'border-gray-100' : 'border-[#42433d]/50'}`}
+                >
+                  <span className={`text-[32px] sm:text-[40px] font-light tracking-tight transition-colors ${activeSection === item.id ? 'text-[#0ae448]' : theme === 'light' ? 'text-[#141415] group-hover:text-[#0ae448]' : 'text-[#fffce1] group-hover:text-[#0ae448]'}`}>
+                    {t(item.key)}
+                  </span>
+                </a>
+              ))}
+            </div>
+
+            {/* Bottom: lang + CTA */}
+            <div className={`flex items-center justify-between px-6 py-5 border-t ${theme === 'light' ? 'border-gray-200' : 'border-[#42433d]'}`}>
+              <div className="flex items-center gap-1">
+                {(['uz', 'ru', 'en'] as const).map((l) => (
+                  <button key={l} onClick={() => setLang(l)}
+                    className={`px-3 py-1.5 rounded-[100px] text-[12px] uppercase transition-all ${lang === l ? (theme === 'light' ? 'bg-[#141415] text-white' : 'bg-[#fffce1] text-[#0e100f]') : (theme === 'light' ? 'text-[#141415]/50' : 'text-[#fffce1]/50')}`}>
+                    {l}
+                  </button>
+                ))}
+              </div>
+              <a href="https://t.me/swensi17" target="_blank" rel="noopener noreferrer"
+                className={`px-5 py-2 rounded-[100px] border text-[13px] tracking-wide ${theme === 'light' ? 'border-[#141415] text-[#141415]' : 'border-[#fffce1] text-[#fffce1]'}`}>
+                {t('nav.cta')}
+              </a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Simple Mobile Floating Header */}
-      <div 
-        className={`fixed z-50 lg:hidden transition-all duration-300 left-4 right-4 h-14 rounded-full border border-white/10 backdrop-blur-xl ${
-          (scrolled && !mobileMenuOpen) 
-            ? 'top-4 bg-[#050505]/90 opacity-100 shadow-2xl' 
-            : 'top-2 bg-transparent border-transparent opacity-0'
-        }`}
-      />
-
-      {/* Fixed Mobile Branding (Star) */}
-      <div className="lg:hidden fixed top-4 left-4 z-[60] pointer-events-none w-12 h-12 flex items-center justify-center">
-        <span className="text-[48px] font-mono leading-none text-[#FF8C00] block drop-shadow-[0_0_15px_rgba(255,140,0,0.3)]">*</span>
-      </div>
-
-      {/* Fixed Mobile Hamburger Button */}
-      <div className="lg:hidden fixed top-6 right-6 z-[60] transition-none">
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="flex flex-col items-end justify-center gap-1.5 p-2 bg-transparent"
-        >
-          <motion.span 
-            animate={{ 
-              rotate: mobileMenuOpen ? 45 : 0, 
-              y: mobileMenuOpen ? 6 : 0,
-              width: mobileMenuOpen ? "36px" : "32px"
-            }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="h-[1.5px] bg-white origin-center"
-          />
-          <motion.span 
-            animate={{ 
-              opacity: mobileMenuOpen ? 0 : 1,
-              scaleX: mobileMenuOpen ? 0 : 1
-            }}
-            transition={{ duration: 0.2 }}
-            className="w-9 h-[1.5px] bg-white"
-          />
-          <motion.span 
-            animate={{ 
-              rotate: mobileMenuOpen ? -45 : 0, 
-              y: mobileMenuOpen ? -6 : 0,
-              width: mobileMenuOpen ? "36px" : "32px"
-            }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="h-[1.5px] bg-white origin-center"
-          />
-        </button>
-      </div>
     </>
   );
 };

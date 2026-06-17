@@ -1,25 +1,20 @@
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
 
 interface ButtonProps {
   text: string;
   onClick?: () => void;
   className?: string;
-  variant?: 'outline' | 'solid';
 }
 
-export const Button: React.FC<ButtonProps> = ({ text, onClick, className = '', variant = 'outline' }) => {
-  const baseStyles = "group relative uppercase tracking-widest text-[10px] sm:text-xs font-bold py-3 sm:py-4 px-5 sm:px-8 flex items-center justify-center gap-2 sm:gap-4 transition-all duration-300 w-full sm:w-auto";
-  
-  const variants = {
-    outline: "border border-white/30 text-white hover:bg-white hover:text-black",
-    solid: "bg-[#FF3B30] text-white border border-[#FF3B30] hover:bg-white hover:text-[#FF3B30] hover:border-white"
-  };
+export const Button: React.FC<ButtonProps> = ({ text, onClick, className = '' }) => {
+  const handleClick = onClick || (() => window.open('https://t.me/swensi17', '_blank'));
 
   return (
-    <button onClick={onClick} className={`${baseStyles} ${variants[variant]} ${className}`}>
-      <span>{text}</span>
-      <ArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+    <button onClick={handleClick} className={`inline-flex items-center gap-3 px-7 py-3 rounded-[100px] border border-[#fffce1] text-[#fffce1] text-[16px] tracking-[-0.01em] hover:bg-[#fffce1] hover:text-[#0e100f] transition-all duration-300 ${className}`}>
+      {text}
+      <span className="w-6 h-6 rounded-full border border-current flex items-center justify-center">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg>
+      </span>
     </button>
   );
 };

@@ -1,27 +1,12 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useLang } from '../lib/i18n';
 
-const faqData = [
-  {
-    num: '01',
-    q: 'How much does it cost?',
-    a: 'The price depends on the project complexity. Message us on Telegram @aileader17 — we will discuss the details and give you an exact quote.'
-  },
-  {
-    num: '02',
-    q: 'How does payment work?',
-    a: '50% prepayment before starting, the rest after project delivery. We work honestly — 10K+ reviews confirm this.'
-  },
-  {
-    num: '03',
-    q: 'What guarantees do you offer?',
-    a: 'Full quality guarantee. Revisions within the scope are free. Post-delivery support included.'
-  },
-  {
-    num: '04',
-    q: 'Where can I see reviews?',
-    a: 'Over 10,000 reviews on @amirjanjik channel. Order archive with client info: @aileaderorder'
-  }
+const getFaqData = (t: (k: string) => string) => [
+  { num: '01', q: t('faq.1.q'), a: t('faq.1.a') },
+  { num: '02', q: t('faq.2.q'), a: t('faq.2.a') },
+  { num: '03', q: t('faq.3.q'), a: t('faq.3.a') },
+  { num: '04', q: t('faq.4.q'), a: t('faq.4.a') },
 ];
 
 const FAQItem: React.FC<{ 
@@ -40,52 +25,44 @@ const FAQItem: React.FC<{
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="border-t border-white/10 relative overflow-hidden cursor-pointer"
+      className="border-t border-gray-200 dark:border-white/10 relative overflow-hidden cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={onClick}
     >
-      {/* Hover background */}
       <div 
-        className={`absolute inset-0 bg-white/[0.02] transition-transform duration-500 origin-left ${isHovered ? 'scale-x-100' : 'scale-x-0'}`}
+        className={`absolute inset-0 bg-gray-50 dark:bg-white/[0.02] transition-transform duration-500 origin-left ${isHovered ? 'scale-x-100' : 'scale-x-0'}`}
       />
       
       <div className="relative z-10 py-6 md:py-10">
         <div className="flex items-start justify-between gap-4 md:gap-6">
           <div className="flex items-start gap-3 md:gap-6 flex-1">
-            {/* Number */}
-            <span className={`text-[10px] md:text-xs font-mono tracking-widest transition-colors duration-300 pt-1 md:pt-2 ${isHovered || isOpen ? 'text-[#FF3B30]' : 'text-neutral-600'}`}>
+            <span className={`text-[10px] md:text-xs font-mono tracking-widest transition-colors duration-300 pt-1 md:pt-2 ${isHovered || isOpen ? 'text-[#0ae448]' : 'text-[#6e6f6c] dark:text-neutral-600'}`}>
               [{num}]
             </span>
             
-            {/* Question */}
             <div className="flex-1">
-              <h3 className={`text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium tracking-tight transition-colors duration-300 leading-tight ${isHovered || isOpen ? 'text-white' : 'text-neutral-300'}`}>
+              <h3 className={`text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium tracking-tight transition-colors duration-300 leading-tight ${isHovered || isOpen ? 'text-[#141415] dark:text-white' : 'text-[#6e6f6c] dark:text-neutral-300'}`}>
                 {q}
               </h3>
               
-              {/* Answer - animated */}
               <motion.div
                 initial={false}
-                animate={{ 
-                  height: isOpen ? 'auto' : 0,
-                  opacity: isOpen ? 1 : 0
-                }}
+                animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
                 className="overflow-hidden"
               >
-                <p className="text-neutral-500 text-sm md:text-base leading-relaxed mt-3 md:mt-4 max-w-2xl">
+                <p className="text-[#6e6f6c] dark:text-neutral-500 text-sm md:text-base leading-relaxed mt-3 md:mt-4 max-w-2xl">
                   {a}
                 </p>
               </motion.div>
             </div>
           </div>
           
-          {/* Toggle icon */}
           <motion.div
             animate={{ rotate: isOpen ? 45 : 0 }}
             transition={{ duration: 0.3 }}
-            className={`w-8 h-8 md:w-10 md:h-10 rounded-full border flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${isOpen ? 'border-[#FF3B30] text-[#FF3B30]' : 'border-white/20 text-white/40'}`}
+            className={`w-8 h-8 md:w-10 md:h-10 rounded-full border flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${isOpen ? 'border-[#0ae448] text-[#0ae448]' : 'border-gray-300 dark:border-white/20 text-[#6e6f6c] dark:text-white/40'}`}
           >
             <span className="text-lg md:text-xl leading-none">+</span>
           </motion.div>
@@ -97,33 +74,30 @@ const FAQItem: React.FC<{
 
 const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const { t } = useLang();
+  const faqData = getFaqData(t);
 
   return (
-    <section id="faq" className="bg-black py-16 md:py-32 relative overflow-hidden">
-      {/* Background decorative element */}
+    <section id="faq" className="bg-white dark:bg-black py-16 md:py-32 relative overflow-hidden">
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none">
         <div className="w-full h-full bg-[radial-gradient(circle,rgba(255,59,48,0.03)_0%,transparent_70%)]" />
       </div>
       
-      {/* Large background text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-        <span className="text-[25vw] font-black text-white/[0.015] tracking-tighter">
+        <span className="text-[25vw] font-black text-[#141415]/[0.03] dark:text-white/[0.015] tracking-tighter">
           FAQ
         </span>
       </div>
 
-      {/* Header */}
       <div className="px-6 md:px-12 mb-10 md:mb-24">
-        <div className="flex justify-between items-center text-[10px] md:text-xs tracking-[0.3em] font-mono text-neutral-600 border-b border-white/5 pb-4">
+        <div className="flex justify-between items-center text-[10px] md:text-xs tracking-[0.3em] font-mono text-[#6e6f6c] dark:text-neutral-600 border-b border-gray-200 dark:border-white/5 pb-4">
           <span>[ 08 / 09 ]</span>
           <span>QUESTIONS</span>
         </div>
       </div>
 
-      {/* Content */}
       <div className="px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-          {/* Left - Title */}
           <div className="lg:col-span-5">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -132,28 +106,28 @@ const FAQ: React.FC = () => {
               transition={{ duration: 0.6 }}
               className="text-center lg:text-left"
             >
-              <span className="text-[#FF3B30] text-xs font-mono tracking-widest block mb-4 md:mb-6">
-                [ FREQUENTLY ASKED ]
+              <span className="text-[#0ae448] text-xs font-mono tracking-widest block mb-4 md:mb-6">
+                [ {t('faq.label')} ]
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95]">
-                QUESTIONS <span className="text-neutral-600">& Answers</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-[#141415] dark:text-white">
+                {t('faq.title')} <span className="text-gray-400 dark:text-neutral-600">{t('faq.title2')}</span>
               </h2>
               
-              <p className="text-neutral-500 mt-6 md:mt-8 max-w-sm text-sm leading-relaxed mx-auto lg:mx-0">
-                Can&apos;t find an answer? Write to us directly and we will respond within an hour.
+              <p className="text-[#6e6f6c] dark:text-neutral-500 mt-6 md:mt-8 max-w-sm text-sm leading-relaxed mx-auto lg:mx-0">
+                {t('faq.hint')}
               </p>
               
               <motion.a
-                href="https://t.me/aileader17"
+                href="https://t.me/swensi17"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center gap-3 mt-6 md:mt-8 border border-white/30 py-3 md:py-4 px-6 md:px-8 group hover:bg-white transition-all duration-300 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-3 mt-6 md:mt-8 border border-[#141415] dark:border-[#fffce1] py-3 md:py-3 px-7 rounded-[100px] group hover:bg-[#141415] dark:hover:bg-[#fffce1] transition-all duration-300 w-full sm:w-auto"
               >
-                <span className="text-white text-[10px] md:text-xs font-bold tracking-widest uppercase group-hover:text-black transition-colors duration-300">MESSAGE ON TELEGRAM</span>
+                <span className="text-[#141415] dark:text-[#fffce1] text-[14px] md:text-[16px] tracking-[-0.01em] group-hover:text-white dark:group-hover:text-[#0e100f] transition-colors duration-300">{t('faq.btn')}</span>
                 <svg 
-                  className="w-3 h-3 md:w-4 md:h-4 text-white group-hover:text-black group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" 
+                  className="w-3 h-3 md:w-4 md:h-4 text-[#141415] dark:text-white group-hover:text-white dark:group-hover:text-black group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" 
                   viewBox="0 0 24 24" 
                   fill="none" 
                   stroke="currentColor" 
@@ -165,7 +139,6 @@ const FAQ: React.FC = () => {
             </motion.div>
           </div>
 
-          {/* Right - FAQ Items */}
           <div className="lg:col-span-7">
             {faqData.map((item, index) => (
               <FAQItem
@@ -178,8 +151,7 @@ const FAQ: React.FC = () => {
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               />
             ))}
-            {/* Bottom border */}
-            <div className="border-t border-white/10" />
+            <div className="border-t border-gray-200 dark:border-white/10" />
           </div>
         </div>
       </div>

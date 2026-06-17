@@ -13,7 +13,7 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="bg-black min-h-screen text-white selection:bg-[#FF3B30] selection:text-white">
+    <div className="bg-white dark:bg-black min-h-screen text-[#141415] dark:text-white selection:bg-[#0ae448] selection:text-white">
       <Header />
       <main>
         <Hero />

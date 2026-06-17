@@ -107,14 +107,14 @@ const MobileCarousel: React.FC<{ technologies: typeof technologies }> = ({ techn
             transition={{ duration: 0.4, delay: index * 0.05 }}
           >
             <div className="flex items-center justify-between mb-4">
-              <span className="text-[#FF3B30] text-[10px] font-mono tracking-[0.2em]">[ {tech.category.toUpperCase()} ]</span>
+              <span className="text-[#0ae448] text-[10px] font-mono tracking-[0.2em]">[ {tech.category.toUpperCase()} ]</span>
               <span className="text-neutral-600 text-[10px] font-mono">{String(index + 1).padStart(2, '0')}</span>
             </div>
             <h3 className="text-2xl font-bold text-white mb-3">{tech.name}</h3>
             <p className="text-neutral-400 text-sm leading-relaxed mb-4">{tech.desc}</p>
             <div className="flex flex-wrap gap-1.5">
               {tech.features.map((f, i) => (
-                <span key={i} className="px-2 py-1 text-[9px] font-mono bg-[#FF3B30]/10 text-[#FF3B30] border border-[#FF3B30]/20 rounded">{f}</span>
+                <span key={i} className="px-2 py-1 text-[9px] font-mono bg-[#0ae448]/10 text-[#0ae448] border border-[#0ae448]/20 rounded">{f}</span>
               ))}
             </div>
           </motion.div>
@@ -134,7 +134,7 @@ const MobileCarousel: React.FC<{ technologies: typeof technologies }> = ({ techn
               }
             }}
             className={`h-1.5 rounded-full transition-all duration-300 ${
-              i === activeIndex ? 'w-6 bg-[#FF3B30]' : 'w-1.5 bg-white/20'
+              i === activeIndex ? 'w-6 bg-[#0ae448]' : 'w-1.5 bg-white/20'
             }`}
           />
         ))}
@@ -239,11 +239,11 @@ const DavidGoliath: React.FC = () => {
               <span className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-neutral-800 mx-4">
                 TECH STACK
               </span>
-              <span className="text-[#FF3B30] text-2xl md:text-4xl mx-4">■</span>
+              <span className="text-[#0ae448] text-2xl md:text-4xl mx-4">■</span>
               <span className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-neutral-800 mx-4">
                 FULL-STACK
               </span>
-              <span className="text-[#FF3B30] text-2xl md:text-4xl mx-4">■</span>
+              <span className="text-[#0ae448] text-2xl md:text-4xl mx-4">■</span>
             </div>
           ))}
         </motion.div>
@@ -262,7 +262,7 @@ const DavidGoliath: React.FC = () => {
             onClick={() => paginate(-1)}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="absolute left-4 md:left-16 lg:left-24 z-30 w-12 h-12 md:w-14 md:h-14 border border-white/20 bg-black/80 backdrop-blur-sm flex items-center justify-center text-white/60 hover:text-white hover:border-[#FF3B30] transition-colors duration-300"
+            className="absolute left-4 md:left-16 lg:left-24 z-30 w-12 h-12 md:w-14 md:h-14 border border-white/20 bg-black/80 backdrop-blur-sm flex items-center justify-center text-white/60 hover:text-white hover:border-[#0ae448] transition-colors duration-300"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M15 18l-6-6 6-6" />
@@ -324,13 +324,13 @@ const DavidGoliath: React.FC = () => {
                     >
                       {/* Top accent line */}
                       {isCenter && (
-                        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#FF3B30] to-transparent" />
+                        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#0ae448] to-transparent" />
                       )}
 
                       <div className="p-8 md:p-10">
                         {/* Header */}
                         <div className="flex items-center justify-between mb-10">
-                          <span className={`text-xs font-mono tracking-[0.2em] ${isCenter ? 'text-[#FF3B30]' : 'text-neutral-700'}`}>
+                          <span className={`text-xs font-mono tracking-[0.2em] ${isCenter ? 'text-[#0ae448]' : 'text-neutral-700'}`}>
                             [ {tech.category.toUpperCase()} ]
                           </span>
                           <span className={`text-xs font-mono ${isCenter ? 'text-neutral-500' : 'text-neutral-800'}`}>
@@ -368,10 +368,10 @@ const DavidGoliath: React.FC = () => {
                       {/* Corner accents */}
                       {isCenter && (
                         <>
-                          <div className="absolute bottom-0 left-0 w-8 h-[1px] bg-[#FF3B30]/50" />
-                          <div className="absolute bottom-0 left-0 w-[1px] h-8 bg-[#FF3B30]/50" />
-                          <div className="absolute bottom-0 right-0 w-8 h-[1px] bg-[#FF3B30]/50" />
-                          <div className="absolute bottom-0 right-0 w-[1px] h-8 bg-[#FF3B30]/50" />
+                          <div className="absolute bottom-0 left-0 w-8 h-[1px] bg-[#0ae448]/50" />
+                          <div className="absolute bottom-0 left-0 w-[1px] h-8 bg-[#0ae448]/50" />
+                          <div className="absolute bottom-0 right-0 w-8 h-[1px] bg-[#0ae448]/50" />
+                          <div className="absolute bottom-0 right-0 w-[1px] h-8 bg-[#0ae448]/50" />
                         </>
                       )}
                     </div>
@@ -386,7 +386,7 @@ const DavidGoliath: React.FC = () => {
             onClick={() => paginate(1)}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="absolute right-4 md:right-16 lg:right-24 z-30 w-12 h-12 md:w-14 md:h-14 border border-white/20 bg-black/80 backdrop-blur-sm flex items-center justify-center text-white/60 hover:text-white hover:border-[#FF3B30] transition-colors duration-300"
+            className="absolute right-4 md:right-16 lg:right-24 z-30 w-12 h-12 md:w-14 md:h-14 border border-white/20 bg-black/80 backdrop-blur-sm flex items-center justify-center text-white/60 hover:text-white hover:border-[#0ae448] transition-colors duration-300"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M9 18l6-6-6-6" />
@@ -410,7 +410,7 @@ const DavidGoliath: React.FC = () => {
             >
               <div className={`h-[2px] transition-all duration-500 ${
                 index === currentIndex 
-                  ? 'bg-[#FF3B30] w-10' 
+                  ? 'bg-[#0ae448] w-10' 
                   : 'bg-white/20 w-6 group-hover:bg-white/40'
               }`} />
             </button>
