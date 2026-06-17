@@ -158,15 +158,15 @@ const Header = () => {
             </div>
 
             {/* Big nav links */}
-            <div className="flex-1 flex flex-col px-6 gap-2 pt-4 overflow-y-auto">
+            <div className="flex-1 flex flex-col px-6 gap-1 pt-4 overflow-y-auto">
               {navItems.map((item) => (
                 <a
                   key={item.id}
                   href={item.href}
                   onClick={(e) => scrollTo(e, item.href)}
-                  className={`group py-3 border-b ${theme === 'light' ? 'border-gray-100' : 'border-[#42433d]/50'}`}
+                  className={`group py-2.5 border-b ${theme === 'light' ? 'border-gray-100' : 'border-[#42433d]/50'}`}
                 >
-                  <span className={`text-[32px] sm:text-[40px] font-light tracking-tight transition-colors ${activeSection === item.id ? 'text-[#0ae448]' : theme === 'light' ? 'text-[#141415] group-hover:text-[#0ae448]' : 'text-[#fffce1] group-hover:text-[#0ae448]'}`}>
+                  <span className={`text-[24px] sm:text-[32px] font-light tracking-tight transition-colors ${activeSection === item.id ? 'text-[#0ae448]' : theme === 'light' ? 'text-[#141415] group-hover:text-[#0ae448]' : 'text-[#fffce1] group-hover:text-[#0ae448]'}`}>
                     {t(item.key)}
                   </span>
                 </a>
@@ -174,7 +174,7 @@ const Header = () => {
             </div>
 
             {/* Bottom: lang + CTA */}
-            <div className={`flex items-center justify-between px-6 py-5 border-t ${theme === 'light' ? 'border-gray-200' : 'border-[#42433d]'}`}>
+            <div className={`flex items-center justify-between px-6 py-3 border-t ${theme === 'light' ? 'border-gray-200' : 'border-[#42433d]'}`}>
               <div className="flex items-center gap-1">
                 {(['uz', 'ru', 'en'] as const).map((l) => (
                   <button key={l} onClick={() => setLang(l)}
