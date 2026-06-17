@@ -75,9 +75,9 @@ const Footer: React.FC = () => {
       <div className="w-full flex justify-center mt-0 px-4 translate-y-[15%]">
         <motion.h1 
           style={{ y: logoY, opacity: logoOpacity }}
-          className="text-[25vw] md:text-[26vw] lg:text-[27vw] font-black tracking-tight leading-[0.7] text-[#141415] dark:text-white lowercase select-none text-center w-full m-0 p-0"
+          className="text-[18vw] md:text-[20vw] lg:text-[22vw] font-black tracking-tighter leading-[0.7] text-[#141415] dark:text-white lowercase select-none text-center w-full m-0 p-0"
         >
-          ailead
+          aileader
         </motion.h1>
       </div>
     </footer>
