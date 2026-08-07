@@ -5,7 +5,7 @@
   "use strict";
 
   var MARK = "data-aileader-about";
-  var VER = "20";
+  var VER = "21";
   var ILL = "/swensiteam/illustrations/color/";
   var sectionEl = null;
   var lastLang = "";
