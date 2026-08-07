@@ -270,16 +270,17 @@
         position: absolute;
         inset: 0;
         border-radius: inherit;
-        padding: 1.5px;
+        padding: 2px;
         box-sizing: border-box;
         background: conic-gradient(
           from var(--cta-angle),
           transparent 0%,
-          transparent 62%,
-          color-mix(in srgb, var(--cta-beam) 0%, transparent) 70%,
-          color-mix(in srgb, var(--cta-beam) 55%, transparent) 82%,
+          transparent 48%,
+          color-mix(in srgb, var(--cta-beam) 18%, transparent) 62%,
+          color-mix(in srgb, var(--cta-beam) 55%, transparent) 74%,
+          color-mix(in srgb, var(--cta-beam) 88%, transparent) 84%,
           var(--cta-beam) 90%,
-          color-mix(in srgb, var(--cta-beam) 55%, transparent) 95%,
+          color-mix(in srgb, var(--cta-beam) 70%, transparent) 95%,
           transparent 100%
         );
         -webkit-mask:
@@ -290,7 +291,7 @@
         opacity: 0;
         pointer-events: none;
         z-index: 2;
-        transition: opacity 0.2s ease;
+        transition: opacity 0.35s ease;
       }
       a.aileader-cta:hover::before {
         /* hide static liquid rim while orbit runs */
@@ -298,10 +299,10 @@
       }
       a.aileader-cta:hover::after {
         opacity: 1;
-        /* first lap: sharp start → soft settle, then steady loop */
+        /* first lap: soft kick, then slower steady loop */
         animation:
-          cta-orbit-kick 0.85s cubic-bezier(0.12, 0.82, 0.18, 1) 1 both,
-          cta-orbit 2.1s linear 0.85s infinite;
+          cta-orbit-kick 1.15s cubic-bezier(0.22, 0.7, 0.2, 1) 1 both,
+          cta-orbit 2.6s linear 1.15s infinite;
       }
       @keyframes cta-orbit-kick {
         from { --cta-angle: 0deg; }
@@ -764,7 +765,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=cta-orbit1"></script>
+  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=cta-orbit2"></script>
   <script src="/swensiteam/js/about-section.js?v=icons3" defer></script>
   </head>
   <body>
