@@ -335,35 +335,51 @@
         color: #050505 !important;
       }
 
-      /* Theme toggle: never white-on-white / black-on-black on hover */
-      header.fixed nav button.aileader-theme-btn {
-        color: var(--hero-nav-fg) !important;
+      /* Theme toggle — orbit profile only, no fill monolith */
+      header.fixed nav button.aileader-theme-btn,
+      button.aileader-theme-btn {
+        color: var(--hero-nav-fg, var(--fg)) !important;
         background: transparent !important;
+        border: none !important;
+        overflow: hidden;
       }
-      header.fixed nav button.aileader-theme-btn svg {
+      header.fixed nav button.aileader-theme-btn svg,
+      button.aileader-theme-btn svg {
         color: inherit !important;
         fill: currentColor !important;
       }
-      html:not(.dark) header.fixed nav button.aileader-theme-btn:hover {
-        background: #0a0a0a !important;
-        color: #ffffff !important;
-        border-color: #0a0a0a !important;
-      }
-      html.dark header.fixed nav button.aileader-theme-btn:hover {
-        background: #ffffff !important;
-        color: #050505 !important;
-        border-color: #ffffff !important;
+      html:not(.dark) button.aileader-theme-btn:hover,
+      html.dark button.aileader-theme-btn:hover {
+        background: transparent !important;
+        color: var(--hero-nav-fg, var(--fg)) !important;
       }
 
-      /* Language menu above glass / hero */
-      header.fixed .aileader-lang-menu {
-        z-index: 80 !important;
+      /* Language segment pill — creative inline RU|EN|UZ */
+      .aileader-lang {
+        overflow: hidden;
       }
-      header.fixed .aileader-lang-btn {
-        position: relative;
+      .aileader-lang-seg {
+        border: 0 !important;
+        background: transparent !important;
+        color: color-mix(in srgb, var(--hero-nav-fg, var(--fg)) 42%, transparent) !important;
+        cursor: pointer;
+        line-height: 1.2;
+        font-weight: 500;
+      }
+      .aileader-lang-seg:hover {
+        color: color-mix(in srgb, var(--hero-nav-fg, var(--fg)) 78%, transparent) !important;
+        background: transparent !important;
+      }
+      .aileader-lang-seg.is-active {
+        color: var(--hero-nav-fg, var(--fg)) !important;
+        background: color-mix(in srgb, var(--hero-nav-fg, var(--fg)) 12%, transparent) !important;
+        font-weight: 650;
+        box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--hero-nav-fg, var(--fg)) 14%, transparent);
+      }
+      header.fixed .aileader-lang {
         z-index: 2;
       }
-      header.fixed nav .ml-2.relative {
+      header.fixed nav .ml-2.aileader-lang {
         z-index: 70;
       }
 
@@ -780,7 +796,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=orbit-soft2"></script>
+  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=lang-theme1"></script>
   <script src="/swensiteam/js/about-section.js?v=orbit-all1" defer></script>
   </head>
   <body>
