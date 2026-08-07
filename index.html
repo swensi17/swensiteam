@@ -309,11 +309,11 @@
         background: rgba(246, 246, 244, 0.58) !important;
       }
       section:has(#aileader-hero-shader) h1 {
-        /* Bug: h1 had Tailwind font-bold (700) but Helony is Regular-only →
-           browser fake-bold thickened the bottom bar and optically ate the gap
-           under the logo, so the subtitle looked glued / shifted up. */
+        /* Helony = Regular only; Tailwind font-bold was fake-bolding the bottom bar */
         font-weight: 400 !important;
         letter-spacing: -0.02em !important;
+        line-height: 0.82 !important;
+        padding-bottom: 0.06em;
       }
       section:has(#aileader-hero-shader) h1 span {
         color: #fff !important;
@@ -327,14 +327,26 @@
         color: #0a0a0a !important;
         text-shadow: none;
       }
+      /* Spacing is flex gap on the hero column (see bundle). Do NOT fight
+         Tailwind preflight `p { margin: 0 }` with tiny margin-top hacks. */
       section:has(#aileader-hero-shader) p.text-white\/60 {
         color: rgba(255,255,255,0.8) !important;
         text-shadow: 0 1px 12px rgba(0,0,0,0.4);
-        margin-top: 0.85rem !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
       }
       html:not(.dark) section:has(#aileader-hero-shader) p.text-white\/60 {
         color: rgba(10,10,10,0.7) !important;
         text-shadow: none;
+      }
+      /* Hard lock hero stack gap even if Tailwind CDN class purge/order flakes */
+      section:has(#aileader-hero-shader) .flex-1.flex.flex-col.items-center {
+        gap: 2.75rem !important;
+      }
+      @media (min-width: 768px) {
+        section:has(#aileader-hero-shader) .flex-1.flex.flex-col.items-center {
+          gap: 3.25rem !important;
+        }
       }
       @media (max-width: 768px) {
         #aileader-hero-shader {
@@ -590,7 +602,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=hero-gap2"></script>
+  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=hero-gap3"></script>
   <script src="/swensiteam/js/about-section.js?v=saygon1" defer></script>
   </head>
   <body>
