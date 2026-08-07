@@ -354,30 +354,45 @@
         color: var(--hero-nav-fg, var(--fg)) !important;
       }
 
-      /* Language segment pill — creative inline RU|EN|UZ */
+      /* Language — round flag chips */
       .aileader-lang {
-        overflow: hidden;
-      }
-      .aileader-lang-seg {
-        border: 0 !important;
-        background: transparent !important;
-        color: color-mix(in srgb, var(--hero-nav-fg, var(--fg)) 42%, transparent) !important;
-        cursor: pointer;
-        line-height: 1.2;
-        font-weight: 500;
-      }
-      .aileader-lang-seg:hover {
-        color: color-mix(in srgb, var(--hero-nav-fg, var(--fg)) 78%, transparent) !important;
-        background: transparent !important;
-      }
-      .aileader-lang-seg.is-active {
-        color: var(--hero-nav-fg, var(--fg)) !important;
-        background: color-mix(in srgb, var(--hero-nav-fg, var(--fg)) 12%, transparent) !important;
-        font-weight: 650;
-        box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--hero-nav-fg, var(--fg)) 14%, transparent);
-      }
-      header.fixed .aileader-lang {
+        position: relative;
         z-index: 2;
+      }
+      .aileader-lang-flag {
+        width: 30px;
+        height: 30px;
+        padding: 0 !important;
+        border: 0 !important;
+        border-radius: 999px !important;
+        overflow: hidden;
+        cursor: pointer;
+        background: transparent !important;
+        flex: 0 0 auto;
+        box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--hero-nav-fg, var(--fg)) 18%, transparent);
+        transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+        opacity: 0.72;
+      }
+      .aileader-lang-flag img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        transform: scale(1.28);
+        pointer-events: none;
+      }
+      .aileader-lang-flag:hover {
+        opacity: 1;
+        transform: translateY(-1px);
+        background: transparent !important;
+      }
+      .aileader-lang-flag.is-active {
+        opacity: 1;
+        transform: scale(1.06);
+        box-shadow:
+          inset 0 0 0 1.5px color-mix(in srgb, var(--hero-nav-fg, var(--fg)) 55%, transparent),
+          0 0 0 2px color-mix(in srgb, var(--hero-nav-fg, var(--fg)) 12%, transparent);
       }
       header.fixed nav .ml-2.aileader-lang {
         z-index: 70;
@@ -796,7 +811,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=lang-theme1"></script>
+  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=lang-flags1"></script>
   <script src="/swensiteam/js/about-section.js?v=orbit-all1" defer></script>
   </head>
   <body>
