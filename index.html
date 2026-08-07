@@ -7,10 +7,69 @@
     <link rel="icon" type="image/png" href="/swensiteam/favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = { darkMode: 'class' }
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"CA Saygon Text"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              mono: ['"CA Saygon Text"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <style>
+      /* UI body — same as NEOLEX (CA Saygon Text). Helony only for hero wordmark. */
+      @font-face {
+        font-family: "CA Saygon Text";
+        src: url("/swensiteam/fonts/saygon/CASaygonText-Thin.woff2") format("woff2");
+        font-weight: 100;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "CA Saygon Text";
+        src: url("/swensiteam/fonts/saygon/CASaygonText-Light.woff2") format("woff2");
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "CA Saygon Text";
+        src: url("/swensiteam/fonts/saygon/CASaygonText-Regular.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "CA Saygon Text";
+        src: url("/swensiteam/fonts/saygon/CASaygonText-Medium.woff2") format("woff2");
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "CA Saygon Text";
+        src: url("/swensiteam/fonts/saygon/CASaygonText-Semibold.woff2") format("woff2");
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "CA Saygon Text";
+        src: url("/swensiteam/fonts/saygon/CASaygonText-Bold.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "CA Saygon Text";
+        src: url("/swensiteam/fonts/saygon/CASaygonText-Extrabold.woff2") format("woff2");
+        font-weight: 800;
+        font-style: normal;
+        font-display: swap;
+      }
       @font-face {
         font-family: 'Helony';
         src: url('/swensiteam/Helony.otf') format('opentype');
@@ -18,10 +77,22 @@
         font-display: swap;
       }
       body {
-        font-family: 'Inter', sans-serif;
+        font-family: "CA Saygon Text", ui-sans-serif, system-ui, sans-serif;
         background-color: var(--bg);
         color: var(--fg);
         overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      button,
+      input,
+      textarea,
+      select {
+        font-family: inherit;
+      }
+      /* Keep section counters / labels on Saygon too (was Inter + system mono) */
+      .font-mono,
+      .aw-mono {
+        font-family: "CA Saygon Text", ui-sans-serif, system-ui, sans-serif !important;
       }
 
       /* —— Unified black / white theme tokens —— */
@@ -267,7 +338,7 @@
         width: 100%;
         background: var(--bg);
         color: var(--fg);
-        font-family: Inter, system-ui, sans-serif;
+        font-family: "CA Saygon Text", ui-sans-serif, system-ui, sans-serif;
         padding: clamp(2.75rem, 5.5vw, 5rem) 0 clamp(3.25rem, 6.5vw, 5.5rem);
         border-top: 1px solid var(--line);
         box-sizing: border-box;
@@ -290,7 +361,7 @@
         align-items: center;
       }
       .aw-mono {
-        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-family: "CA Saygon Text", ui-sans-serif, system-ui, sans-serif;
         font-size: 0.68rem;
         letter-spacing: 0.28em;
         text-transform: uppercase;
@@ -509,8 +580,8 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=manager1"></script>
-  <script src="/swensiteam/js/about-section.js?v=edit18" defer></script>
+  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=saygon1"></script>
+  <script src="/swensiteam/js/about-section.js?v=saygon1" defer></script>
   </head>
   <body>
     <div id="root"></div>
