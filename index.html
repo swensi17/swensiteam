@@ -308,55 +308,80 @@
       html:not(.dark) section:has(#aileader-hero-shader) .bg-\[\#050505\]\/35 {
         background: rgba(246, 246, 244, 0.58) !important;
       }
-      section:has(#aileader-hero-shader) h1 {
-        font-weight: 400 !important;
-        letter-spacing: -0.02em !important;
-        line-height: 1 !important;
-        /* Helony paints ~0.4em below its layout box — pad so ink stays inside */
-        padding-bottom: 0.55em !important;
-        margin-bottom: 0 !important;
-        overflow: visible;
-      }
-      section:has(#aileader-hero-shader) h1 span {
+      section:has(#aileader-hero-shader) h1 span,
+      .hero-logo__title span {
         color: #fff !important;
         text-shadow: 0 2px 28px rgba(0,0,0,0.5);
       }
-      section:has(#aileader-hero-shader) h1 span:first-child {
+      section:has(#aileader-hero-shader) h1 span:first-child,
+      .hero-logo__title span:first-child {
         color: rgba(255,255,255,0.88) !important;
       }
       html:not(.dark) section:has(#aileader-hero-shader) h1 span,
-      html:not(.dark) section:has(#aileader-hero-shader) h1 span:first-child {
+      html:not(.dark) section:has(#aileader-hero-shader) h1 span:first-child,
+      html:not(.dark) .hero-logo__title span,
+      html:not(.dark) .hero-logo__title span:first-child {
         color: #0a0a0a !important;
         text-shadow: none;
       }
-      /* Extra air under logo after Helony overflow is absorbed by h1 padding */
-      section:has(#aileader-hero-shader) p.text-white\/60 {
+      section:has(#aileader-hero-shader) p.text-white\/60,
+      .hero-sub {
         color: rgba(255,255,255,0.8) !important;
         text-shadow: 0 1px 12px rgba(0,0,0,0.4);
-        margin-top: 2.5rem !important;
-        margin-bottom: 0 !important;
       }
-      html:not(.dark) section:has(#aileader-hero-shader) p.text-white\/60 {
+      html:not(.dark) section:has(#aileader-hero-shader) p.text-white\/60,
+      html:not(.dark) .hero-sub {
         color: rgba(10,10,10,0.7) !important;
         text-shadow: none;
       }
-      section:has(#aileader-hero-shader) .flex-1.flex.flex-col.items-center {
-        gap: 1.25rem !important;
+
+      /* —— Hero stack: ONE source of spacing (no padding/margin/gap fights) —— */
+      .hero-stack {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 10;
+        padding: 0 1.5rem;
+        gap: 2rem; /* logo → sub → CTA, equal rhythm */
+        box-sizing: border-box;
       }
-      @media (min-width: 768px) {
-        section:has(#aileader-hero-shader) h1 {
-          padding-bottom: 0.65em !important;
-        }
-        section:has(#aileader-hero-shader) p.text-white\/60 {
-          margin-top: 3rem !important;
-        }
-        section:has(#aileader-hero-shader) .flex-1.flex.flex-col.items-center {
-          gap: 1.5rem !important;
-        }
+      .hero-logo {
+        margin: 0;
+        padding: 0;
+        line-height: 0; /* collapse wrapper; title owns its box */
+      }
+      .hero-logo__title {
+        margin: 0;
+        padding: 0;
+        font-family: Helony, sans-serif;
+        font-weight: 400;
+        font-size: clamp(3rem, 12vw, 8rem);
+        line-height: 1;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        text-align: center;
+      }
+      .hero-sub {
+        margin: 0 !important;
+        padding: 0;
+        max-width: 32rem;
+        text-align: center;
+        font-size: clamp(0.875rem, 1.6vw, 1.125rem);
+        line-height: 1.45;
+        font-weight: 400;
+      }
+      .hero-cta {
+        margin: 0;
       }
       @media (max-width: 768px) {
         #aileader-hero-shader {
           background-image: url("/swensiteam/hero-back-mob.webp");
+        }
+        .hero-stack {
+          gap: 1.5rem;
         }
       }
 
@@ -608,7 +633,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=hero-gap7"></script>
+  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=hero-rewrite2"></script>
   <script src="/swensiteam/js/about-section.js?v=saygon1" defer></script>
   </head>
   <body>
