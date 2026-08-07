@@ -311,10 +311,11 @@
       section:has(#aileader-hero-shader) h1 {
         font-weight: 400 !important;
         letter-spacing: -0.02em !important;
-        /* Keep line-height >= 1 so Helony glyphs do NOT overflow into the gap below */
         line-height: 1 !important;
-        padding-bottom: 0 !important;
+        /* Helony paints ~0.4em below its layout box — pad so ink stays inside */
+        padding-bottom: 0.55em !important;
         margin-bottom: 0 !important;
+        overflow: visible;
       }
       section:has(#aileader-hero-shader) h1 span {
         color: #fff !important;
@@ -328,11 +329,11 @@
         color: #0a0a0a !important;
         text-shadow: none;
       }
-      /* Force subtitle DOWN under the logo (beats Tailwind p{margin:0}) */
+      /* Extra air under logo after Helony overflow is absorbed by h1 padding */
       section:has(#aileader-hero-shader) p.text-white\/60 {
         color: rgba(255,255,255,0.8) !important;
         text-shadow: 0 1px 12px rgba(0,0,0,0.4);
-        margin-top: 4rem !important;
+        margin-top: 2.5rem !important;
         margin-bottom: 0 !important;
       }
       html:not(.dark) section:has(#aileader-hero-shader) p.text-white\/60 {
@@ -343,8 +344,11 @@
         gap: 1.25rem !important;
       }
       @media (min-width: 768px) {
+        section:has(#aileader-hero-shader) h1 {
+          padding-bottom: 0.65em !important;
+        }
         section:has(#aileader-hero-shader) p.text-white\/60 {
-          margin-top: 5rem !important;
+          margin-top: 3rem !important;
         }
         section:has(#aileader-hero-shader) .flex-1.flex.flex-col.items-center {
           gap: 1.5rem !important;
@@ -604,7 +608,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=hero-gap6"></script>
+  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=hero-gap7"></script>
   <script src="/swensiteam/js/about-section.js?v=saygon1" defer></script>
   </head>
   <body>
