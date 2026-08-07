@@ -5,7 +5,7 @@
   "use strict";
 
   var MARK = "data-aileader-about";
-  var VER = "21";
+  var VER = "22";
   var ILL = "/swensiteam/illustrations/color/";
   var sectionEl = null;
   var lastLang = "";
@@ -121,7 +121,7 @@
       '  <img src="' +
       ILL +
       c.img +
-      "?v=color1" +
+      "?v=robo1" +
       '" alt="" draggable="false" />' +
       "</div>"
     );
