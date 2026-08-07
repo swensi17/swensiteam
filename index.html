@@ -350,7 +350,6 @@
         min-width: 26px !important;
         min-height: 26px !important;
         padding: 0 !important;
-        border: 0 !important;
         border-radius: 999px !important;
         overflow: hidden;
         flex: 0 0 26px;
@@ -365,6 +364,17 @@
       button.aileader-theme-btn {
         color: var(--hero-nav-fg, var(--fg)) !important;
         background: transparent !important;
+        border: 1.5px solid var(--hero-nav-fg, var(--fg)) !important;
+      }
+      /* Language slightly smaller + same round rim as theme */
+      .aileader-lang-btn {
+        width: 22px !important;
+        height: 22px !important;
+        min-width: 22px !important;
+        min-height: 22px !important;
+        flex: 0 0 22px;
+        border: 1.5px solid var(--hero-nav-fg, var(--fg)) !important;
+        box-shadow: none !important;
       }
       header.fixed nav button.aileader-theme-btn svg,
       button.aileader-theme-btn svg {
@@ -390,8 +400,7 @@
       .aileader-lang-btn {
         cursor: pointer;
         background: transparent !important;
-        box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--hero-nav-fg, var(--fg)) 22%, transparent);
-        transition: box-shadow 0.25s ease;
+        transition: border-color 0.25s ease;
       }
       .aileader-lang-btn img,
       .aileader-lang-flag img {
@@ -400,7 +409,7 @@
         object-fit: cover;
         object-position: center;
         display: block;
-        transform: scale(1.22);
+        transform: scale(1.15);
         pointer-events: none;
       }
       .aileader-lang-btn:hover {
@@ -871,7 +880,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=lang-align1"></script>
+  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=lang-rim1"></script>
   <script src="/swensiteam/js/about-section.js?v=orbit-all1" defer></script>
   </head>
   <body>
