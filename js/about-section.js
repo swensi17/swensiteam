@@ -5,8 +5,8 @@
   "use strict";
 
   var MARK = "data-aileader-about";
-  var VER = "18";
-  var ILL = "/swensiteam/illustrations/svg/";
+  var VER = "20";
+  var ILL = "/swensiteam/illustrations/color/";
   var sectionEl = null;
   var lastLang = "";
 
@@ -62,10 +62,10 @@
 
   // layout: "art-bottom" | "art-top" like the reference
   var CARDS = [
-    { title: "c1Title", text: "c1Text", img: "01.svg", href: "#services", layout: "art-bottom" },
-    { title: "c2Title", text: "c2Text", img: "03.svg", href: "#services", layout: "art-top" },
-    { title: "c3Title", text: "c3Text", img: "05.svg", href: "#process", layout: "art-bottom" },
-    { title: "c4Title", text: "c4Text", img: "07.svg", href: "https://ailider.uz/studio/", layout: "art-top" },
+    { title: "c1Title", text: "c1Text", img: "01.webp", href: "#services", layout: "art-bottom" },
+    { title: "c2Title", text: "c2Text", img: "02.webp", href: "#services", layout: "art-top" },
+    { title: "c3Title", text: "c3Text", img: "03.webp", href: "#process", layout: "art-bottom" },
+    { title: "c4Title", text: "c4Text", img: "04.webp", href: "https://ailider.uz/studio/", layout: "art-top" },
   ];
 
   function getLang() {
@@ -121,7 +121,7 @@
       '  <img src="' +
       ILL +
       c.img +
-      "?v=card18" +
+      "?v=color1" +
       '" alt="" draggable="false" />' +
       "</div>"
     );

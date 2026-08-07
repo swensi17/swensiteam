@@ -484,12 +484,19 @@
         border-radius: 28px;
         background: var(--aw-blue);
         color: #111;
-        border: none;
-        box-shadow: 0 18px 36px -16px rgba(0, 0, 0, 0.35);
+        border: 1px solid color-mix(in srgb, #0a0a0a 8%, transparent);
+        box-shadow: none;
         box-sizing: border-box;
         min-height: 520px;
         overflow: hidden;
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+      }
+      html.dark .aw-card {
+        --aw-blue: #4aa3e8;
+        border-color: color-mix(in srgb, #fff 10%, transparent);
+      }
+      html:not(.dark) .aw-card {
+        --aw-blue: #6bb8f0;
       }
       .aw-card:hover {
         transform: translateY(-4px);
@@ -593,8 +600,11 @@
         display: block;
         pointer-events: none;
         -webkit-user-drag: none;
-        filter: none !important;
         background: transparent !important;
+        filter: drop-shadow(0 10px 20px rgba(10, 10, 10, 0.14));
+      }
+      html.dark .aw-card__art img {
+        filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
       }
       .aw-card__dots {
         display: flex;
@@ -634,7 +644,7 @@
 }
 </script>
   <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=hero-rewrite2"></script>
-  <script src="/swensiteam/js/about-section.js?v=saygon1" defer></script>
+  <script src="/swensiteam/js/about-section.js?v=color1" defer></script>
   </head>
   <body>
     <div id="root"></div>
