@@ -251,14 +251,14 @@
         opacity: 1;
       }
 
-      /* Unified orbit arc on action pills — thin profile, no fill monolith */
+      /* Unified orbit arc on action pills — soft start, bright profile */
       @property --orbit-angle {
         syntax: "<angle>";
         inherits: false;
         initial-value: 0deg;
       }
-      a.aileader-cta,
-      a.hero-cta,
+      .aileader-cta,
+      .hero-cta,
       .aw-card__btn,
       .aw-card__go {
         --orbit-beam: #ffffff;
@@ -266,29 +266,30 @@
         z-index: 1;
         isolation: isolate;
       }
-      html:not(.dark) a.aileader-cta,
-      html:not(.dark) a.hero-cta,
+      html:not(.dark) .aileader-cta,
+      html:not(.dark) .hero-cta,
       html:not(.dark) .aw-card__btn,
       html:not(.dark) .aw-card__go {
         --orbit-beam: #0a0a0a;
       }
-      a.aileader-cta::after,
-      a.hero-cta::after,
+      .aileader-cta::after,
+      .hero-cta::after,
       .aw-card__btn::after,
       .aw-card__go::after {
         content: "";
         position: absolute;
         inset: 0;
         border-radius: inherit;
-        padding: 1.5px;
+        padding: 2px;
         box-sizing: border-box;
         background: conic-gradient(
           from var(--orbit-angle),
           transparent 0%,
-          transparent 72%,
-          color-mix(in srgb, var(--orbit-beam) 25%, transparent) 82%,
+          transparent 58%,
+          color-mix(in srgb, var(--orbit-beam) 28%, transparent) 72%,
+          color-mix(in srgb, var(--orbit-beam) 70%, transparent) 82%,
           var(--orbit-beam) 90%,
-          color-mix(in srgb, var(--orbit-beam) 35%, transparent) 95%,
+          color-mix(in srgb, var(--orbit-beam) 75%, transparent) 95%,
           transparent 100%
         );
         -webkit-mask:
@@ -299,20 +300,21 @@
         opacity: 0;
         pointer-events: none;
         z-index: 2;
-        transition: opacity 0.35s ease;
+        transition: opacity 0.55s ease;
       }
-      a.aileader-cta:hover::before,
-      a.hero-cta:hover::before {
+      .aileader-cta:hover::before,
+      .hero-cta:hover::before {
         opacity: 0 !important;
       }
-      a.aileader-cta:hover::after,
-      a.hero-cta:hover::after,
+      .aileader-cta:hover::after,
+      .hero-cta:hover::after,
       .aw-card__btn:hover::after,
       .aw-card__go:hover::after {
         opacity: 1;
+        /* soft ease-in start, then steady loop — no sharp kick */
         animation:
-          orbit-kick 1.2s cubic-bezier(0.22, 0.7, 0.2, 1) 1 both,
-          orbit-spin 2.7s linear 1.2s infinite;
+          orbit-kick 1.7s cubic-bezier(0.4, 0.0, 0.2, 1) 1 both,
+          orbit-spin 2.8s linear 1.7s infinite;
       }
       @keyframes orbit-kick {
         from { --orbit-angle: 0deg; }
@@ -778,7 +780,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=social-btns1"></script>
+  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=orbit-soft2"></script>
   <script src="/swensiteam/js/about-section.js?v=orbit-all1" defer></script>
   </head>
   <body>
