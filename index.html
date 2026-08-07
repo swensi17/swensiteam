@@ -73,7 +73,9 @@
       @font-face {
         font-family: 'Helony';
         src: url('/swensiteam/Helony.otf') format('opentype');
-        font-weight: normal;
+        /* One Regular file — map full weight range so font-bold does NOT synthetic-embolden */
+        font-weight: 100 900;
+        font-style: normal;
         font-display: swap;
       }
       body {
@@ -306,6 +308,13 @@
       html:not(.dark) section:has(#aileader-hero-shader) .bg-\[\#050505\]\/35 {
         background: rgba(246, 246, 244, 0.58) !important;
       }
+      section:has(#aileader-hero-shader) h1 {
+        /* Bug: h1 had Tailwind font-bold (700) but Helony is Regular-only →
+           browser fake-bold thickened the bottom bar and optically ate the gap
+           under the logo, so the subtitle looked glued / shifted up. */
+        font-weight: 400 !important;
+        letter-spacing: -0.02em !important;
+      }
       section:has(#aileader-hero-shader) h1 span {
         color: #fff !important;
         text-shadow: 0 2px 28px rgba(0,0,0,0.5);
@@ -321,6 +330,7 @@
       section:has(#aileader-hero-shader) p.text-white\/60 {
         color: rgba(255,255,255,0.8) !important;
         text-shadow: 0 1px 12px rgba(0,0,0,0.4);
+        margin-top: 0.85rem !important;
       }
       html:not(.dark) section:has(#aileader-hero-shader) p.text-white\/60 {
         color: rgba(10,10,10,0.7) !important;
@@ -580,7 +590,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=hero-gap1"></script>
+  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=hero-gap2"></script>
   <script src="/swensiteam/js/about-section.js?v=saygon1" defer></script>
   </head>
   <body>
