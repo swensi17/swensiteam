@@ -5,7 +5,7 @@
   "use strict";
 
   var MARK = "data-aileader-about";
-  var VER = "24";
+  var VER = "25";
   var ILL = "/swensiteam/illustrations/color/";
   var sectionEl = null;
   var lastLang = "";
@@ -87,8 +87,7 @@
       href +
       '" aria-label="more">' +
       '    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
-      '      <path d="M12 2.5l1.6 6.1L20 10l-6.4 1.4L12 17.5l-1.6-6.1L4 10l6.4-1.4L12 2.5z" fill="currentColor"/>' +
-      '      <path d="M18.5 15.2l.7 2.6 2.6.7-2.6.7-.7 2.6-.7-2.6-2.6-.7 2.6-.7.7-2.6z" fill="currentColor" opacity=".85"/>' +
+      '      <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>' +
       "    </svg>" +
       "  </a>" +
       "</div>"
