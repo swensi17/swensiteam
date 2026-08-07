@@ -5,7 +5,7 @@
   "use strict";
 
   var MARK = "data-aileader-about";
-  var VER = "23";
+  var VER = "24";
   var ILL = "/swensiteam/illustrations/color/";
   var sectionEl = null;
   var lastLang = "";
@@ -77,14 +77,6 @@
     return I18N[getLang()];
   }
 
-  function dotsHtml(active) {
-    var html = '<div class="aw-card__dots" aria-hidden="true">';
-    for (var i = 0; i < CARDS.length; i++) {
-      html += '<span class="aw-card__dot' + (i === active ? " is-on" : "") + '"></span>';
-    }
-    return html + "</div>";
-  }
-
   function actionsHtml(href) {
     return (
       '<div class="aw-card__actions">' +
@@ -94,8 +86,9 @@
       '  <a class="aw-card__go" href="' +
       href +
       '" aria-label="more">' +
-      '    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
-      '      <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>' +
+      '    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
+      '      <path d="M12 2.5l1.6 6.1L20 10l-6.4 1.4L12 17.5l-1.6-6.1L4 10l6.4-1.4L12 2.5z" fill="currentColor"/>' +
+      '      <path d="M18.5 15.2l.7 2.6 2.6.7-2.6.7-.7 2.6-.7-2.6-2.6-.7 2.6-.7.7-2.6z" fill="currentColor" opacity=".85"/>' +
       "    </svg>" +
       "  </a>" +
       "</div>"
@@ -145,7 +138,6 @@
         c.layout +
         '">' +
         inner +
-        dotsHtml(idx) +
         "</article>"
       );
     }).join("");
