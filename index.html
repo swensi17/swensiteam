@@ -233,16 +233,11 @@
       header.fixed nav a {
         color: var(--hero-nav-fg) !important;
       }
-      header.fixed nav .aileader-lang-menu,
-      header.fixed nav .aileader-lang-menu * {
-        color: inherit;
+      header.fixed nav .aileader-lang-menu {
+        color: var(--hero-nav-fg);
       }
-      header.fixed nav .aileader-lang-menu button {
-        color: rgba(255, 255, 255, 0.8) !important;
-      }
-      header.fixed nav .aileader-lang-menu button:hover {
-        color: #fff !important;
-        background: rgba(255, 255, 255, 0.1) !important;
+      header.fixed nav .aileader-lang-menu button.aileader-lang-flag:hover {
+        background: transparent !important;
       }
       header.fixed nav a:hover {
         opacity: 0.85;
@@ -411,22 +406,26 @@
       }
       .aileader-lang-menu {
         position: absolute;
-        top: calc(100% + 10px);
+        top: calc(100% + 14px);
         left: 50%;
         right: auto;
         z-index: 80;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 8px;
-        padding: 7px 9px;
-        border-radius: 999px;
-        background: color-mix(in srgb, var(--bg, #0d0d0d) 92%, transparent);
-        border: 1px solid color-mix(in srgb, var(--hero-nav-fg, var(--fg)) 18%, transparent);
-        backdrop-filter: blur(16px) saturate(140%);
-        -webkit-backdrop-filter: blur(16px) saturate(140%);
-        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
-        transform: translateX(-50%) translateY(-6px) scale(0.92);
+        padding: 10px 12px 11px;
+        min-width: 118px;
+        border-radius: 16px;
+        background: #121212;
+        border: 1px solid color-mix(in srgb, var(--hero-nav-fg, #fff) 22%, transparent);
+        backdrop-filter: blur(18px) saturate(140%);
+        -webkit-backdrop-filter: blur(18px) saturate(140%);
+        box-shadow:
+          0 12px 32px rgba(0, 0, 0, 0.45),
+          0 0 0 1px rgba(0, 0, 0, 0.35);
+        transform: translateX(-50%) translateY(-8px) scale(0.94);
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
@@ -434,6 +433,28 @@
           opacity 0.28s cubic-bezier(0.22, 0.7, 0.2, 1),
           transform 0.28s cubic-bezier(0.22, 0.7, 0.2, 1),
           visibility 0.28s;
+      }
+      html:not(.dark) .aileader-lang-menu {
+        background: #f7f7f5;
+        box-shadow:
+          0 12px 32px rgba(0, 0, 0, 0.14),
+          0 0 0 1px rgba(0, 0, 0, 0.06);
+      }
+      .aileader-lang-title {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: color-mix(in srgb, var(--hero-nav-fg, var(--fg)) 55%, transparent) !important;
+        line-height: 1;
+        user-select: none;
+        pointer-events: none;
+      }
+      .aileader-lang-flags {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
       }
       .aileader-lang-menu.is-open {
         opacity: 1;
@@ -443,8 +464,8 @@
       }
       .aileader-lang-menu--up {
         top: auto;
-        bottom: calc(100% + 10px);
-        transform: translateX(-50%) translateY(6px) scale(0.92);
+        bottom: calc(100% + 14px);
+        transform: translateX(-50%) translateY(8px) scale(0.94);
       }
       .aileader-lang-menu--up.is-open {
         transform: translateX(-50%) translateY(0) scale(1);
@@ -912,7 +933,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=lang-pop1"></script>
+  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=lang-title1"></script>
   <script src="/swensiteam/js/about-section.js?v=orbit-all1" defer></script>
   </head>
   <body>
