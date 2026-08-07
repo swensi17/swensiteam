@@ -610,11 +610,18 @@
         border-radius: 999px;
         border: 1px solid color-mix(in srgb, var(--fg) 22%, transparent);
         background: color-mix(in srgb, var(--fg) 5%, transparent);
-        transition: transform 0.2s ease, background 0.2s ease;
+        transition: background 0.25s ease, border-color 0.25s ease;
+      }
+      .aw-card__go svg {
+        transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        transform-origin: center;
       }
       .aw-card__go:hover {
-        transform: translateX(3px);
         background: color-mix(in srgb, var(--fg) 10%, transparent);
+        border-color: color-mix(in srgb, var(--fg) 40%, transparent);
+      }
+      .aw-card__go:hover svg {
+        transform: rotate(90deg);
       }
       .aw-card__art {
         width: 100%;
@@ -694,7 +701,7 @@
 }
 </script>
   <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=hero-rewrite2"></script>
-  <script src="/swensiteam/js/about-section.js?v=icons2" defer></script>
+  <script src="/swensiteam/js/about-section.js?v=icons3" defer></script>
   </head>
   <body>
     <div id="root"></div>
