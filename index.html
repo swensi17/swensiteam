@@ -547,6 +547,42 @@
         user-select: none;
       }
 
+      /* Process list — voxel cursor only on active step title */
+      .aileader-proc-row {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.35em;
+        text-align: left;
+      }
+      .aileader-proc-name {
+        display: inline-block;
+      }
+      .aileader-proc-mark {
+        position: relative;
+        flex: 0 0 auto;
+        width: 1.05em;
+        height: 1.05em;
+        min-width: 34px;
+        min-height: 34px;
+        max-width: 64px;
+        max-height: 64px;
+        pointer-events: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transform-origin: center;
+        filter: drop-shadow(0 5px 12px rgba(0, 0, 0, 0.28));
+      }
+      .aileader-proc-mark img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+        pointer-events: none;
+        user-select: none;
+      }
+
       /* Hero background + theme-aware overlays / titles */
       #aileader-hero-shader {
         position: absolute;
@@ -960,7 +996,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=svc-key2"></script>
+  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=proc-cur1"></script>
   <script src="/swensiteam/js/about-section.js?v=orbit-all1" defer></script>
   </head>
   <body>
