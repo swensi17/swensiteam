@@ -335,16 +335,41 @@
         color: #050505 !important;
       }
 
-      /* Theme toggle — orbit profile only, no fill monolith */
+      /* Theme + language — same compact round size, one baseline */
+      header.fixed nav .aileader-lang,
+      header.fixed nav button.aileader-theme-btn {
+        align-self: center;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+      }
+      header.fixed nav button.aileader-theme-btn,
+      button.aileader-theme-btn,
+      .aileader-lang-btn {
+        width: 26px !important;
+        height: 26px !important;
+        min-width: 26px !important;
+        min-height: 26px !important;
+        padding: 0 !important;
+        border: 0 !important;
+        border-radius: 999px !important;
+        overflow: hidden;
+        flex: 0 0 26px;
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        line-height: 0;
+        vertical-align: middle;
+        box-sizing: border-box;
+      }
       header.fixed nav button.aileader-theme-btn,
       button.aileader-theme-btn {
         color: var(--hero-nav-fg, var(--fg)) !important;
         background: transparent !important;
-        border: none !important;
-        overflow: hidden;
       }
       header.fixed nav button.aileader-theme-btn svg,
       button.aileader-theme-btn svg {
+        width: 12px !important;
+        height: 12px !important;
         color: inherit !important;
         fill: currentColor !important;
       }
@@ -354,26 +379,19 @@
         color: var(--hero-nav-fg, var(--fg)) !important;
       }
 
-      /* Language — one round flag (theme size), menu of flags */
+      /* Language — one round flag, same size as theme */
       .aileader-lang {
         position: relative;
         z-index: 2;
-      }
-      .aileader-lang-btn {
-        width: 32px;
-        height: 32px;
-        padding: 0 !important;
-        border: 0 !important;
-        border-radius: 999px !important;
-        overflow: hidden;
-        cursor: pointer;
-        background: transparent !important;
-        flex: 0 0 auto;
         display: inline-flex;
         align-items: center;
-        justify-content: center;
+        height: 26px;
+      }
+      .aileader-lang-btn {
+        cursor: pointer;
+        background: transparent !important;
         box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--hero-nav-fg, var(--fg)) 22%, transparent);
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        transition: box-shadow 0.25s ease;
       }
       .aileader-lang-btn img,
       .aileader-lang-flag img {
@@ -382,11 +400,10 @@
         object-fit: cover;
         object-position: center;
         display: block;
-        transform: scale(1.28);
+        transform: scale(1.22);
         pointer-events: none;
       }
       .aileader-lang-btn:hover {
-        transform: translateY(-1px);
         background: transparent !important;
       }
       .aileader-lang-menu {
@@ -396,8 +413,8 @@
         z-index: 80;
         display: flex;
         align-items: center;
-        gap: 8px;
-        padding: 8px;
+        gap: 6px;
+        padding: 6px;
         border-radius: 999px;
         background: color-mix(in srgb, var(--bg, #111) 88%, transparent);
         border: 1px solid color-mix(in srgb, var(--hero-nav-fg, var(--fg)) 16%, transparent);
@@ -409,8 +426,8 @@
         bottom: calc(100% + 8px);
       }
       .aileader-lang-flag {
-        width: 28px;
-        height: 28px;
+        width: 24px;
+        height: 24px;
         padding: 0 !important;
         border: 0 !important;
         border-radius: 999px !important;
@@ -434,6 +451,11 @@
       }
       header.fixed nav .aileader-lang {
         z-index: 70;
+      }
+      /* thinner orbit on tiny chips */
+      .aileader-lang-btn.aileader-cta::after,
+      .aileader-theme-btn.aileader-cta::after {
+        padding: 1px;
       }
 
       /* Hero background + theme-aware overlays / titles */
@@ -849,7 +871,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=lang-one1"></script>
+  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=lang-align1"></script>
   <script src="/swensiteam/js/about-section.js?v=orbit-all1" defer></script>
   </head>
   <body>
