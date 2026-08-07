@@ -418,13 +418,14 @@
         padding: 10px 12px 11px;
         min-width: 118px;
         border-radius: 16px;
-        background: #121212;
-        border: 1px solid color-mix(in srgb, var(--hero-nav-fg, #fff) 22%, transparent);
-        backdrop-filter: blur(18px) saturate(140%);
-        -webkit-backdrop-filter: blur(18px) saturate(140%);
+        /* same dark glass profile as top nav — no gray plate */
+        background: var(--hero-nav-bg) !important;
+        border: 1px solid color-mix(in srgb, var(--hero-nav-fg) 22%, transparent) !important;
+        backdrop-filter: blur(14px) saturate(1.1);
+        -webkit-backdrop-filter: blur(14px) saturate(1.1);
         box-shadow:
-          0 12px 32px rgba(0, 0, 0, 0.45),
-          0 0 0 1px rgba(0, 0, 0, 0.35);
+          inset 0 1px 0 color-mix(in srgb, var(--hero-nav-fg) 14%, transparent),
+          0 10px 30px rgba(0, 0, 0, 0.22);
         transform: translateX(-50%) translateY(-8px) scale(0.94);
         opacity: 0;
         visibility: hidden;
@@ -435,17 +436,17 @@
           visibility 0.28s;
       }
       html:not(.dark) .aileader-lang-menu {
-        background: #f7f7f5;
+        background: var(--hero-nav-bg) !important;
         box-shadow:
-          0 12px 32px rgba(0, 0, 0, 0.14),
-          0 0 0 1px rgba(0, 0, 0, 0.06);
+          inset 0 1px 0 color-mix(in srgb, var(--hero-nav-fg) 14%, transparent),
+          0 10px 30px rgba(0, 0, 0, 0.12);
       }
       .aileader-lang-title {
         font-size: 11px;
         font-weight: 600;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: color-mix(in srgb, var(--hero-nav-fg, var(--fg)) 55%, transparent) !important;
+        color: color-mix(in srgb, var(--hero-nav-fg) 62%, transparent) !important;
         line-height: 1;
         user-select: none;
         pointer-events: none;
@@ -933,7 +934,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=lang-title1"></script>
+  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=lang-dark1"></script>
   <script src="/swensiteam/js/about-section.js?v=orbit-all1" defer></script>
   </head>
   <body>
