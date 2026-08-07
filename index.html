@@ -309,12 +309,12 @@
         background: rgba(246, 246, 244, 0.58) !important;
       }
       section:has(#aileader-hero-shader) h1 {
-        /* Helony = Regular only; Tailwind font-bold was fake-bolding the bottom bar */
         font-weight: 400 !important;
         letter-spacing: -0.02em !important;
-        line-height: 0.78 !important;
-        /* Optical air under Helony's heavy baseline bar (flex gap alone looks tight) */
-        padding-bottom: 0.45em !important;
+        /* Keep line-height >= 1 so Helony glyphs do NOT overflow into the gap below */
+        line-height: 1 !important;
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
       }
       section:has(#aileader-hero-shader) h1 span {
         color: #fff !important;
@@ -328,25 +328,26 @@
         color: #0a0a0a !important;
         text-shadow: none;
       }
-      /* Spacing is flex gap on the hero column (see bundle). Do NOT fight
-         Tailwind preflight `p { margin: 0 }` with tiny margin-top hacks. */
+      /* Force subtitle DOWN under the logo (beats Tailwind p{margin:0}) */
       section:has(#aileader-hero-shader) p.text-white\/60 {
         color: rgba(255,255,255,0.8) !important;
         text-shadow: 0 1px 12px rgba(0,0,0,0.4);
-        margin-top: 0 !important;
+        margin-top: 2.75rem !important;
         margin-bottom: 0 !important;
       }
       html:not(.dark) section:has(#aileader-hero-shader) p.text-white\/60 {
         color: rgba(10,10,10,0.7) !important;
         text-shadow: none;
       }
-      /* Hard lock hero stack gap even if Tailwind CDN class purge/order flakes */
       section:has(#aileader-hero-shader) .flex-1.flex.flex-col.items-center {
-        gap: 1.75rem !important;
+        gap: 1.25rem !important;
       }
       @media (min-width: 768px) {
+        section:has(#aileader-hero-shader) p.text-white\/60 {
+          margin-top: 3.25rem !important;
+        }
         section:has(#aileader-hero-shader) .flex-1.flex.flex-col.items-center {
-          gap: 2rem !important;
+          gap: 1.5rem !important;
         }
       }
       @media (max-width: 768px) {
@@ -603,7 +604,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=hero-gap4"></script>
+  <script type="module" crossorigin src="/swensiteam/assets/index-Digf9FMO.js?v=hero-gap5"></script>
   <script src="/swensiteam/js/about-section.js?v=saygon1" defer></script>
   </head>
   <body>
