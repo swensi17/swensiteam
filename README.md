@@ -1,4 +1,12 @@
-# 🚀 aileader DEVELOPER - Портфолио сайт
+# swensiteam (GitHub Pages зеркало)
+
+Страница [swensi17.github.io/swensiteam](https://swensi17.github.io/swensiteam/) показывает живой сайт [neovixar.com](https://neovixar.com/) во встроенном окне. Тексты и дизайн не дублируются в репозитории: всегда подгружается актуальная версия с основного домена.
+
+Исходники старой вёрстки (React-компоненты в `components/`) оставлены в истории git, в сборку не входят.
+
+---
+
+# aileader DEVELOPER (архив описания)
 
 Современный одностраничный сайт-портфолио для веб-студии, созданный с использованием React, TypeScript и Vite.
 

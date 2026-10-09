@@ -1,15 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import { LangProvider } from './lib/i18n';
-import { ThemeProvider } from './lib/theme';
+import { NEOVIXAR_ORIGIN } from './lib/neovixar';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <ThemeProvider>
-      <LangProvider>
-        <App />
-      </LangProvider>
-    </ThemeProvider>
-  </React.StrictMode>
-);
+const frame = document.getElementById('nv-mirror') as HTMLIFrameElement | null;
+const fallback = document.getElementById('nv-fallback');
+
+if (frame) {
+  frame.src = `${NEOVIXAR_ORIGIN}/`;
+  frame.addEventListener('error', () => {
+    if (fallback) {
+      fallback.style.display = 'flex';
+      frame.style.display = 'none';
+    }
+  });
+}
