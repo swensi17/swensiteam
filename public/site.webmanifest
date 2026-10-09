@@ -1,0 +1,15 @@
+{
+  "name": "Neovixar",
+  "short_name": "Neovixar",
+  "description": "Разработка сайтов, Telegram-ботов и приложений",
+  "lang": "ru",
+  "start_url": "/swensiteam/",
+  "display": "browser",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    { "src": "/swensiteam/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/swensiteam/favicon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/swensiteam/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
